@@ -10,4 +10,6 @@
     <string name="login_failed">"Login fallido"</string>
     <string name="prompt_username">Usuario</string>
     <string name="login">Acceder</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment"></string>
 </resources>

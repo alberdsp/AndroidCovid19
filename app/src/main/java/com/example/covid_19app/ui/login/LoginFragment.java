@@ -7,6 +7,7 @@ import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 import androidx.fragment.app.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -21,6 +22,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.covid_19app.MenuActivity;
 import com.example.covid_19app.databinding.FragmentLoginBinding;
 
 import com.example.covid_19app.R;
@@ -85,8 +87,9 @@ public class LoginFragment extends Fragment {
                 if (loginResult.getSuccess() != null) {
                     updateUiWithUser(loginResult.getSuccess());
 
-                    // TODO  INTENT PARA ABRIR SEGUNDO ACTIVITY
-
+                    // si el login es satisfactorio llamamos al MenuActivity
+                    Intent intent = new Intent(getActivity(), MenuActivity.class);
+                    startActivity(intent);
 
                 }
             }
