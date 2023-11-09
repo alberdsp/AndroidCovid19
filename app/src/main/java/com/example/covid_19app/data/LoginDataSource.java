@@ -5,9 +5,12 @@ import com.example.covid_19app.data.model.LoggedInUser;
 import java.io.IOException;
 
 /**
- * Class that handles authentication w/ login credentials and retrieves user information.
+ * Clase que nos realiza el login pasando por parametro usuario y password
  */
 public class LoginDataSource {
+
+
+      
 
     public Result<LoggedInUser> login(String username, String password) {
          LoggedInUser usuario;
@@ -18,9 +21,7 @@ public class LoginDataSource {
               if ("admin".equals(username) && "admin".equals(password)){
 
                 usuario =
-                        new LoggedInUser(
-                                java.util.UUID.randomUUID().toString(),
-                                "Hola Bienvenido a la app");
+                        new LoggedInUser(username,"Hola admin, Bienvenido a la app");
 
                 return new Result.Success<>(usuario);
             }else {
