@@ -25,6 +25,10 @@ import com.example.covid_19app.databinding.FragmentLoginBinding;
 
 import com.example.covid_19app.R;
 
+
+// se utiliza por defecto le Fragment que trae Android por defecto pero se modifica
+// la clase datasource
+
 public class LoginFragment extends Fragment {
 
     private LoginViewModel loginViewModel;
@@ -80,6 +84,10 @@ public class LoginFragment extends Fragment {
                 }
                 if (loginResult.getSuccess() != null) {
                     updateUiWithUser(loginResult.getSuccess());
+
+                    // TODO  INTENT PARA ABRIR SEGUNDO ACTIVITY
+
+
                 }
             }
         });

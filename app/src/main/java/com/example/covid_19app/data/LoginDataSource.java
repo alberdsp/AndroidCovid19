@@ -1,5 +1,10 @@
 package com.example.covid_19app.data;
 
+import static com.google.android.material.internal.ContextUtils.getActivity;
+
+import android.content.SharedPreferences;
+
+import com.example.covid_19app.MainActivity;
 import com.example.covid_19app.data.model.LoggedInUser;
 
 import java.io.IOException;
@@ -10,13 +15,15 @@ import java.io.IOException;
 public class LoginDataSource {
 
 
-      
 
     public Result<LoggedInUser> login(String username, String password) {
          LoggedInUser usuario;
 
 
+
         try {
+
+          // limitamos usuario solo al admin
 
               if ("admin".equals(username) && "admin".equals(password)){
 
@@ -33,6 +40,8 @@ public class LoginDataSource {
             return new Result.Error(new IOException("Error en el logging ", e));
         }
     }
+
+
 
     public void logout() {
 
