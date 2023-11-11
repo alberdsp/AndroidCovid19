@@ -9,8 +9,8 @@
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainerViewLogin"
         android:name="com.example.covid_19app.ui.login.LoginFragment"
-        android:layout_width="339dp"
-        android:layout_height="458dp"
+        android:layout_width="388dp"
+        android:layout_height="672dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"

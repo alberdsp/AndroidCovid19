@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 /**
+ * ABF 2023
  * Creamos el fragment para el menu de botones y navegación
  */
 public class MenuFragment extends Fragment {
@@ -77,8 +78,12 @@ public class MenuFragment extends Fragment {
         return vista;
     }
 
+    /**
+     * ABF 2023
+     * método para abrir el fragment correspondiente en función del botón pulsado
+     * @param fragment  instancia del objeto fragment que queremos abrir
+     */
 
-    // creo el método para abrir el fragment correspondiente en función del botón pulsado
     private void abrirFragment(Fragment fragment) {
         FragmentTransaction transaction = getActivity().getSupportFragmentManager()
                 .beginTransaction();
@@ -87,7 +92,12 @@ public class MenuFragment extends Fragment {
         transaction.commit();
     }
 
-    // método para cerrar la sesión  volver al login en el MainActivity
+
+    /**
+     * ABF 2023
+     * método para cerrar la sesión  volver al login en el MainActivity
+     */
+
     private void cerrarSesion() {
 
         // Abrimos el MainActivity

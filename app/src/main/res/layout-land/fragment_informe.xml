@@ -74,12 +74,40 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <TextView
+        android:id="@+id/textViewResultadotext"
+        android:layout_width="227dp"
+        android:layout_height="40dp"
+        android:text="Resultado de la prueba"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/buttonResultadoTest"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.458"
+        app:layout_constraintStart_toEndOf="@+id/textViewNombre"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.882" />
+
+    <Button
+        android:id="@+id/buttonResultadoTest"
+        android:layout_width="265dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="176dp"
+        android:backgroundTint="#EEF2F3"
+        android:enabled="false"
+        app:cornerRadius="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.475"
+        app:layout_constraintStart_toEndOf="@+id/textViewApellidos"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
         android:id="@+id/textViewTemperaturaEtiqueta"
         android:layout_width="405dp"
         android:layout_height="35dp"
         android:layout_marginTop="24dp"
         android:fontFamily="@font/abeezee"
-        android:text="Temperatura :"
+        android:text="Resultados Medición Temperatura :"
         android:textColor="#221E1E"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -118,13 +146,13 @@
 
     <TextView
         android:id="@+id/textViewTemperatura"
-        android:layout_width="405dp"
-        android:layout_height="35dp"
+        android:layout_width="410dp"
+        android:layout_height="43dp"
         android:layout_marginTop="8dp"
         android:fontFamily="@font/abeezee"
         android:text="Temperatura"
         android:textColor="#221E1E"
-        android:textSize="20sp"
+        android:textSize="34sp"
         android:textStyle="bold"
         app:layout_constraintTop_toBottomOf="@+id/textViewApellidos"
         tools:layout_editor_absoluteX="0dp" />
@@ -133,13 +161,13 @@
         android:id="@+id/buttonMenu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="112dp"
+        android:layout_marginTop="80dp"
         android:backgroundTint="#9C27B0"
         android:text="MENU"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.819"
+        app:layout_constraintHorizontal_bias="0.814"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewResultado" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonResultadoTest" />
 
     <View
         android:id="@+id/divider2"
@@ -149,13 +177,5 @@
         android:background="?android:attr/listDivider"
         app:layout_constraintTop_toBottomOf="@+id/textViewProvincia"
         tools:layout_editor_absoluteX="3dp" />
-
-    <TextView
-        android:id="@+id/textViewResultado"
-        android:layout_width="263dp"
-        android:layout_height="65dp"
-        android:background="#4CAF50"
-        tools:layout_editor_absoluteX="440dp"
-        tools:layout_editor_absoluteY="141dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

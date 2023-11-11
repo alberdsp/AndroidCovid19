@@ -16,15 +16,15 @@
         android:text="@string/hello_blank_fragment"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/textViewTitulo5"
-        android:layout_width="298dp"
-        android:layout_height="30dp"
+        android:layout_width="278dp"
+        android:layout_height="29dp"
         android:layout_marginTop="40dp"
         android:background="#9C27B0"
         android:fontFamily="sans-serif-black"
@@ -40,11 +40,11 @@
 
     <TextView
         android:id="@+id/textViewTemperaturaEtiqueta"
-        android:layout_width="405dp"
-        android:layout_height="35dp"
+        android:layout_width="376dp"
+        android:layout_height="33dp"
         android:layout_marginTop="64dp"
         android:fontFamily="@font/abeezee"
-        android:text="Temperatura :"
+        android:text="Resultados Medición Temperatura :"
         android:textColor="#221E1E"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -54,8 +54,8 @@
 
     <TextView
         android:id="@+id/textViewNombre"
-        android:layout_width="405dp"
-        android:layout_height="35dp"
+        android:layout_width="377dp"
+        android:layout_height="32dp"
         android:layout_marginTop="16dp"
         android:fontFamily="@font/abeezee"
         android:text="Nombre"
@@ -68,55 +68,60 @@
 
     <TextView
         android:id="@+id/textViewApellidos"
-        android:layout_width="405dp"
-        android:layout_height="35dp"
+        android:layout_width="377dp"
+        android:layout_height="30dp"
         android:layout_marginTop="16dp"
         android:fontFamily="@font/abeezee"
         android:text="Apellidos"
         android:textColor="#221E1E"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@+id/textViewNombre"
-        tools:layout_editor_absoluteX="3dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewNombre" />
 
     <TextView
         android:id="@+id/textViewTemperatura"
-        android:layout_width="405dp"
-        android:layout_height="35dp"
+        android:layout_width="376dp"
+        android:layout_height="45dp"
         android:layout_marginTop="16dp"
         android:fontFamily="@font/abeezee"
         android:text="Temperatura"
         android:textColor="#221E1E"
-        android:textSize="20sp"
+        android:textSize="34sp"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@+id/textViewApellidos"
-        tools:layout_editor_absoluteX="3dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewApellidos" />
 
     <TextView
         android:id="@+id/textViewCiudad"
-        android:layout_width="405dp"
-        android:layout_height="35dp"
+        android:layout_width="377dp"
+        android:layout_height="28dp"
         android:layout_marginTop="16dp"
         android:fontFamily="@font/abeezee"
         android:text="Ciudad"
         android:textColor="#221E1E"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@+id/textViewTemperatura"
-        tools:layout_editor_absoluteX="3dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTemperatura" />
 
     <TextView
         android:id="@+id/textViewProvincia"
-        android:layout_width="405dp"
-        android:layout_height="35dp"
+        android:layout_width="375dp"
+        android:layout_height="32dp"
         android:layout_marginTop="16dp"
         android:fontFamily="@font/abeezee"
         android:text="Provincia"
         android:textColor="#221E1E"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@+id/textViewCiudad"
-        tools:layout_editor_absoluteX="3dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.444"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewCiudad" />
 
     <View
         android:id="@+id/divider"
@@ -130,29 +135,50 @@
         android:id="@+id/divider2"
         android:layout_width="409dp"
         android:layout_height="1dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="24dp"
         android:background="?android:attr/listDivider"
         app:layout_constraintTop_toBottomOf="@+id/textViewProvincia"
-        tools:layout_editor_absoluteX="3dp" />
-
-    <TextView
-        android:id="@+id/textViewResultado"
-        android:layout_width="263dp"
-        android:layout_height="65dp"
-        android:layout_marginTop="76dp"
-        android:background="#4CAF50"
-        app:layout_constraintTop_toBottomOf="@+id/divider2"
-        tools:layout_editor_absoluteX="76dp" />
+        tools:layout_editor_absoluteX="1dp" />
 
     <Button
         android:id="@+id/buttonMenu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginBottom="68dp"
         android:backgroundTint="#9C27B0"
         android:text="Menu"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/buttonResultadoTest"
+        android:layout_width="265dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="84dp"
+        android:backgroundTint="#EEF2F3"
+        android:enabled="false"
+        app:cornerRadius="5dp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonMenu"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewResultado" />
+        app:layout_constraintTop_toBottomOf="@+id/divider2"
+        app:layout_constraintVertical_bias="0.28" />
+
+    <TextView
+        android:id="@+id/textViewResultadotext"
+        android:layout_width="275dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="32dp"
+        android:text="Resultado de la prueba"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/buttonResultadoTest"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider2"
+        app:layout_constraintVertical_bias="0.576" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
