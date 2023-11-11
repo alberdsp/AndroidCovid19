@@ -11,6 +11,23 @@
     android:paddingBottom="@dimen/fragment_vertical_margin"
     tools:context=".ui.login.LoginFragment">
 
+    <TextView
+        android:id="@+id/textViewTitulo2"
+        android:layout_width="279dp"
+        android:layout_height="28dp"
+        android:background="#9C27B0"
+        android:fontFamily="sans-serif-black"
+        android:text="RADAR COVID19    2023"
+        android:textAlignment="center"
+        android:textColor="#F9F8FA"
+        android:textSize="20sp"
+        app:circularflow_angles="25"
+        app:layout_constraintBottom_toTopOf="@+id/username"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.40" />
+
     <EditText
         android:id="@+id/username"
         android:layout_width="0dp"

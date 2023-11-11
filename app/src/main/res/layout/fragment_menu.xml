@@ -9,11 +9,27 @@
 
     <!-- TODO: Update blank fragment layout -->
 
+    <TextView
+        android:id="@+id/textViewTitulo3"
+        android:layout_width="279dp"
+        android:layout_height="28dp"
+        android:layout_marginTop="40dp"
+        android:background="#9C27B0"
+        android:fontFamily="sans-serif-black"
+        android:text="RADAR COVID19    2023"
+        android:textAlignment="center"
+        android:textColor="#F9F8FA"
+        android:textSize="20sp"
+        app:circularflow_angles="25"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <Button
         android:id="@+id/buttonConfiguracion"
         android:layout_width="318dp"
         android:layout_height="51dp"
-        android:layout_marginBottom="40dp"
+        android:layout_marginBottom="60dp"
         android:background="#9C27B0"
         android:backgroundTint="#9C27B0"
         android:paddingHorizontal="30px"
@@ -23,7 +39,7 @@
         android:textColorLink="#9C27B0"
         app:layout_constraintBottom_toTopOf="@+id/buttonLogout"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
@@ -41,10 +57,10 @@
         app:iconTint="#9C27B0"
         app:layout_constraintBottom_toTopOf="@+id/buttonConversor"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.944"
+        app:layout_constraintVertical_bias="0.957"
         app:rippleColor="#9C27B0" />
 
     <Button
@@ -61,7 +77,7 @@
         android:textColorLink="#9C27B0"
         app:layout_constraintBottom_toTopOf="@+id/buttonConfiguracion"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
@@ -73,7 +89,7 @@
         android:backgroundTint="#9C27B0"
         android:paddingHorizontal="30px"
         android:paddingVertical="30px"
-        android:text="CERRRAR SESIÓN"
+        android:text="CERRAR SESIÓN"
         android:textColorHighlight="#9C27B0"
         android:textColorLink="#9C27B0"
         app:layout_constraintBottom_toBottomOf="parent"

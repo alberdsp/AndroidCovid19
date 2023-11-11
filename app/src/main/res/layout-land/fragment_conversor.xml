@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ConversorFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <TextView
+        android:id="@+id/textViewTitulo"
+        android:layout_width="wrap_content"
+        android:layout_height="28dp"
+        android:layout_marginTop="40dp"
+        android:background="#9C27B0"
+        android:fontFamily="sans-serif-black"
+        android:text="RADAR COVID19    2023"
+        android:textAlignment="center"
+        android:textColor="#F9F8FA"
+        android:textSize="20sp"
+        app:circularflow_angles="25"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewConversorEtiqueta"
+        android:layout_width="351dp"
+        android:layout_height="29dp"
+        android:layout_marginTop="40dp"
+        android:fontFamily="@font/abeezee"
+        android:text="Conversor de Celsius a Fahrenheit"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTitulo" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout2"
+        android:layout_width="147dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="52dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewConversorEtiqueta">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/TextinputCelsius"
+            android:layout_width="141dp"
+            android:layout_height="53dp"
+            android:hint="Celsius ?" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/textViewCelsius"
+        android:layout_width="146dp"
+        android:layout_height="53dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="56dp"
+        android:text="grados Celsius"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.956"
+        app:layout_constraintStart_toEndOf="@+id/textViewIgual"
+        app:layout_constraintTop_toBottomOf="@+id/textViewConversorEtiqueta" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout3"
+        android:layout_width="147dp"
+        android:layout_height="60dp"
+        tools:layout_editor_absoluteX="378dp"
+        tools:layout_editor_absoluteY="182dp">
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="@string/hello_blank_fragment" />
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="@string/hello_blank_fragment" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/textinputFahren"
+            android:layout_width="141dp"
+            android:layout_height="53dp"
+            android:hint="Fahrenheit ?" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/textViewIgual2"
+        android:layout_width="9dp"
+        android:layout_height="22dp"
+        android:layout_marginStart="372dp"
+        android:text="="
+        app:layout_constraintStart_toEndOf="@+id/textInputLayout2"
+        tools:layout_editor_absoluteY="194dp" />
+
+    <Button
+        android:id="@+id/buttonFahtoCel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="64dp"
+        android:backgroundTint="#9C27B0"
+        android:text="CALCULAR"
+        android:textColorHighlight="#9C27B0"
+        android:textColorLink="#9C27B0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.828"
+        app:layout_constraintStart_toEndOf="@+id/buttonCeltoFah"
+        app:layout_constraintTop_toBottomOf="@+id/textViewIgual2" />
+
+    <TextView
+        android:id="@+id/textViewIgual"
+        android:layout_width="9dp"
+        android:layout_height="22dp"
+        android:layout_marginStart="12dp"
+        android:text="="
+        app:layout_constraintStart_toEndOf="@+id/textInputLayout2"
+        tools:layout_editor_absoluteY="207dp" />
+
+    <TextView
+        android:id="@+id/textViewFahrenheit"
+        android:layout_width="146dp"
+        android:layout_height="53dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="52dp"
+        android:text="grados Fahrenheit"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/textViewIgual"
+        app:layout_constraintTop_toBottomOf="@+id/textViewConversorEtiqueta" />
+
+    <Button
+        android:id="@+id/buttonCeltoFah"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="144dp"
+        android:backgroundTint="#9C27B0"
+        android:text="CALCULAR"
+        android:textColorHighlight="#9C27B0"
+        android:textColorLink="#9C27B0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.178"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewConversorEtiqueta" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
