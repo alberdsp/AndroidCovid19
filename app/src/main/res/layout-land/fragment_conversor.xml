@@ -53,7 +53,8 @@
             android:id="@+id/TextinputCelsius"
             android:layout_width="141dp"
             android:layout_height="53dp"
-            android:hint="Celsius ?" />
+            android:hint="Celsius ?"
+            android:inputType="number" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
@@ -61,13 +62,13 @@
         android:layout_width="125dp"
         android:layout_height="50dp"
         android:layout_marginStart="28dp"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="68dp"
         android:text="grados Celsius"
         android:textAlignment="center"
         android:textAllCaps="false"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.285"
+        app:layout_constraintHorizontal_bias="0.35"
         app:layout_constraintStart_toEndOf="@+id/textInputLayoutFaher"
         app:layout_constraintTop_toBottomOf="@+id/textViewConversorEtiqueta" />
 
@@ -96,7 +97,8 @@
             android:id="@+id/textinputFahren"
             android:layout_width="141dp"
             android:layout_height="53dp"
-            android:hint="Fahrenheit ?" />
+            android:hint="Fahrenheit ?"
+            android:inputType="number" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
@@ -111,19 +113,19 @@
         app:layout_constraintTop_toBottomOf="@+id/textViewConversorEtiqueta" />
 
     <Button
-        android:id="@+id/buttonFahtoCel"
+        android:id="@+id/buttonCalcular"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
-        android:layout_marginEnd="64dp"
+        android:layout_marginTop="72dp"
         android:backgroundTint="#9C27B0"
         android:text="CALCULAR"
         android:textColorHighlight="#9C27B0"
         android:textColorLink="#9C27B0"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.828"
-        app:layout_constraintStart_toEndOf="@+id/buttonCeltoFah"
-        app:layout_constraintTop_toBottomOf="@+id/textViewIgual2" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewFahrenheit"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/textViewIgual"
@@ -140,26 +142,12 @@
         android:layout_width="146dp"
         android:layout_height="53dp"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="68dp"
         android:text="grados Fahrenheit"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.002"
         app:layout_constraintStart_toEndOf="@+id/textViewIgual"
         app:layout_constraintTop_toBottomOf="@+id/textViewConversorEtiqueta" />
-
-    <Button
-        android:id="@+id/buttonCeltoFah"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
-        android:backgroundTint="#9C27B0"
-        android:text="CALCULAR"
-        android:textColorHighlight="#9C27B0"
-        android:textColorLink="#9C27B0"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.179"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewIgual" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

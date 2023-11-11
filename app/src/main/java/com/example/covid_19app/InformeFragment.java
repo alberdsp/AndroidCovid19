@@ -1,9 +1,11 @@
 package com.example.covid_19app;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -35,6 +37,27 @@ public class InformeFragment extends Fragment {
 
         // declaramos el botón Finalizar que pasa al fragment informe
         Button buttonresultado = vista.findViewById(R.id.buttonResultadoTest);
+
+
+        // declaramos el botón Finalizar que pasa al fragment informe
+        Button buttonmenu = vista.findViewById(R.id.buttonMenu);
+
+        buttonmenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Fragment menuFragment = new MenuFragment();
+
+                FragmentTransaction transaction = getActivity().getSupportFragmentManager()
+                        .beginTransaction();
+                transaction.replace(R.id.fragmentContainerViewMenu, menuFragment );
+                transaction.addToBackStack(null);
+                transaction.commit();
+
+
+            }
+        });
+
+
 
         // variables para tratar la temperatura y tipo 1 celsius 2 faherenheit
 
