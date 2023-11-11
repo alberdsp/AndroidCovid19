@@ -8,11 +8,12 @@
     tools:context=".MedicionTempFragment">
 
     <!-- TODO: Update blank fragment layout -->
+
     <TextView
         android:id="@+id/textViewTitulo4"
         android:layout_width="279dp"
         android:layout_height="28dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="16dp"
         android:background="#9C27B0"
         android:fontFamily="sans-serif-black"
         android:text="RADAR COVID19    2023"
@@ -47,24 +48,6 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/textInputEditProvincia"
-        android:layout_width="411dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:hint="Provincia"
-        app:layout_constraintTop_toBottomOf="@+id/textInputEditCiudad"
-        tools:layout_editor_absoluteX="64dp" />
-
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/textInputEditNombre"
-        android:layout_width="411dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="68dp"
-        android:hint="Nombre"
-        app:layout_constraintTop_toBottomOf="@+id/textViewTitulo4"
-        tools:layout_editor_absoluteX="64dp" />
-
-    <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/textInputEditCiudad"
         android:layout_width="411dp"
         android:layout_height="wrap_content"
@@ -74,12 +57,34 @@
         tools:layout_editor_absoluteX="64dp" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/textInputEditApellidos"
+        android:id="@+id/textInputEditProvincia"
         android:layout_width="411dp"
         android:layout_height="wrap_content"
-        android:hint="Apellidos"
-        app:layout_constraintTop_toBottomOf="@+id/textInputEditNombre"
+        android:layout_marginTop="8dp"
+        android:hint="Provincia"
+        app:layout_constraintTop_toBottomOf="@+id/textInputEditCiudad"
         tools:layout_editor_absoluteX="64dp" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/textInputEditNombre"
+        android:layout_width="411dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:hint="Nombre"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTitulo4"
+        tools:layout_editor_absoluteX="64dp" />
+
+    <Button
+        android:id="@+id/buttonFinalizar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="88dp"
+        android:backgroundTint="#9C27B0"
+        android:text="FINALIZAR"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.835"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/textInputEditTemperatura"
@@ -91,15 +96,16 @@
 
     <RadioGroup
         android:id="@+id/radioGroup"
-        android:layout_width="127dp"
-        android:layout_height="94dp"
-        android:layout_marginTop="132dp"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="515dp">
+        android:layout_width="146dp"
+        android:layout_height="92dp"
+        android:layout_marginTop="112dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textInputEditApellidos"
+        app:layout_constraintTop_toTopOf="parent">
 
         <RadioButton
             android:id="@+id/radioButtonCelsius"
-            android:layout_width="123dp"
+            android:layout_width="121dp"
             android:layout_height="wrap_content"
             android:text="Celsius" />
 
@@ -111,23 +117,19 @@
 
     </RadioGroup>
 
-    <Button
-        android:id="@+id/buttonFinalizar"
-        android:layout_width="wrap_content"
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/textInputEditApellidos"
+        android:layout_width="411dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="84dp"
-        android:backgroundTint="#9C27B0"
-        android:text="FINALIZAR"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.835"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+        android:hint="Apellidos"
+        app:layout_constraintTop_toBottomOf="@+id/textInputEditNombre"
+        tools:layout_editor_absoluteX="64dp" />
 
     <TextView
         android:id="@+id/textViewMedicion"
         android:layout_width="191dp"
         android:layout_height="24dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="12dp"
         android:text="Medición de temperatura:"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"

@@ -9,6 +9,23 @@
 
     <!-- TODO: Update blank fragment layout -->
 
+    <Button
+        android:id="@+id/buttonMedicion"
+        android:layout_width="318dp"
+        android:layout_height="51dp"
+        android:layout_marginBottom="12dp"
+        android:backgroundTint="#9C27B0"
+        android:paddingHorizontal="30px"
+        android:paddingVertical="30px"
+        android:text="MEDICION TEMPERATURA"
+        android:textColorHighlight="#9C27B0"
+        android:textColorLink="#9C27B0"
+        app:layout_constraintBottom_toTopOf="@+id/buttonConversor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTitulo3"
+        app:layout_constraintVertical_bias="0.997" />
+
     <TextView
         android:id="@+id/textViewTitulo3"
         android:layout_width="279dp"
@@ -30,7 +47,6 @@
         android:layout_width="318dp"
         android:layout_height="51dp"
         android:layout_marginBottom="60dp"
-        android:background="#9C27B0"
         android:backgroundTint="#9C27B0"
         android:paddingHorizontal="30px"
         android:paddingVertical="30px"
@@ -43,32 +59,10 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/buttonMedirTemp"
-        android:layout_width="318dp"
-        android:layout_height="51dp"
-        android:background="#9C27B0"
-        android:backgroundTint="#9C27B0"
-        android:foregroundTint="#9C27B0"
-        android:paddingHorizontal="30px"
-        android:paddingVertical="30px"
-        android:text="MEDIR TEMPERATURA"
-        android:textColorHighlight="#9C27B0"
-        android:textColorLink="#9C27B0"
-        app:iconTint="#9C27B0"
-        app:layout_constraintBottom_toTopOf="@+id/buttonConversor"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.957"
-        app:rippleColor="#9C27B0" />
-
-    <Button
         android:id="@+id/buttonConversor"
         android:layout_width="318dp"
         android:layout_height="51dp"
-        android:layout_marginBottom="8dp"
-        android:background="#9C27B0"
+        android:layout_marginBottom="12dp"
         android:backgroundTint="#9C27B0"
         android:paddingHorizontal="30px"
         android:paddingVertical="30px"
@@ -85,7 +79,6 @@
         android:layout_width="318dp"
         android:layout_height="51dp"
         android:layout_marginBottom="16dp"
-        android:background="#9C27B0"
         android:backgroundTint="#9C27B0"
         android:paddingHorizontal="30px"
         android:paddingVertical="30px"
@@ -101,6 +94,7 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hello_blank_fragment" />
+        android:text="@string/hello_blank_fragment"
+        tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

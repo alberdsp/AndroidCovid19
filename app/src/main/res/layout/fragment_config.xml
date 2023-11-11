@@ -20,8 +20,8 @@
 
     <TextView
         android:id="@+id/textViewTitulo6"
-        android:layout_width="wrap_content"
-        android:layout_height="28dp"
+        android:layout_width="265dp"
+        android:layout_height="30dp"
         android:layout_marginTop="40dp"
         android:background="#9C27B0"
         android:fontFamily="sans-serif-black"
@@ -82,6 +82,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="60dp"
+        android:enabled="true"
+        android:trackTint="#9C27B0"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.14"
         app:layout_constraintStart_toEndOf="@+id/textViewSwiCelsius"
@@ -93,6 +95,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="60dp"
+        android:trackTint="#9C27B0"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.159"
         app:layout_constraintStart_toEndOf="@+id/textViewSwiCelsius"

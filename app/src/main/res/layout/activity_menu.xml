@@ -7,10 +7,10 @@
     tools:context=".MenuActivity">
 
     <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fragmentContainerView2"
+        android:id="@+id/fragmentContainerViewMenu"
         android:name="com.example.covid_19app.MenuFragment"
-        android:layout_width="355dp"
-        android:layout_height="710dp"
+        android:layout_width="399dp"
+        android:layout_height="723dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

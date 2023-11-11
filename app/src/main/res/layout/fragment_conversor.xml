@@ -11,8 +11,8 @@
 
     <TextView
         android:id="@+id/textViewTitulo"
-        android:layout_width="wrap_content"
-        android:layout_height="28dp"
+        android:layout_width="267dp"
+        android:layout_height="29dp"
         android:layout_marginTop="40dp"
         android:background="#9C27B0"
         android:fontFamily="sans-serif-black"
@@ -41,14 +41,20 @@
         app:layout_constraintTop_toBottomOf="@+id/textViewTitulo" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout2"
-        android:layout_width="147dp"
-        android:layout_height="60dp"
+        android:id="@+id/textInputLayoutCelsius"
+        android:layout_width="160dp"
+        android:layout_height="69dp"
         android:layout_marginStart="28dp"
         android:layout_marginTop="52dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewConversorEtiqueta">
 
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/TextinputCelsius"
+            android:layout_width="141dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="24dp"
+            android:hint="Celsius ?" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
@@ -76,14 +82,22 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout3"
-        android:layout_width="147dp"
-        android:layout_height="60dp"
+        android:id="@+id/textInputLayoutFaher"
+        android:layout_width="159dp"
+        android:layout_height="63dp"
         android:layout_marginStart="28dp"
         android:layout_marginTop="272dp"
+        app:layout_constraintEnd_toStartOf="@+id/textViewIgual2"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewConversorEtiqueta">
 
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/textinputFahren"
+            android:layout_width="141dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="124dp"
+            android:hint="Fahrenheit ?" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
@@ -112,31 +126,24 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewConversorEtiqueta" />
 
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/textinputFahren"
-        android:layout_width="141dp"
-        android:layout_height="53dp"
-        android:hint="Fahrenheit ?"
-        tools:layout_editor_absoluteX="28dp"
-        tools:layout_editor_absoluteY="414dp" />
-
     <TextView
         android:id="@+id/textViewIgual2"
         android:layout_width="9dp"
         android:layout_height="22dp"
         android:layout_marginStart="44dp"
         android:text="="
-        app:layout_constraintStart_toEndOf="@+id/textInputLayout2"
+        app:layout_constraintStart_toEndOf="@+id/textInputLayoutCelsius"
         tools:layout_editor_absoluteY="429dp" />
 
     <TextView
         android:id="@+id/textViewIgual"
         android:layout_width="9dp"
         android:layout_height="22dp"
-        android:layout_marginStart="44dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="72dp"
         android:text="="
-        app:layout_constraintStart_toEndOf="@+id/textInputLayout2"
-        tools:layout_editor_absoluteY="208dp" />
+        app:layout_constraintStart_toEndOf="@+id/textInputLayoutCelsius"
+        app:layout_constraintTop_toBottomOf="@+id/textViewConversorEtiqueta" />
 
     <TextView
         android:id="@+id/textViewFahrenheit"
@@ -163,13 +170,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewConversorEtiqueta" />
-
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/TextinputCelsius"
-        android:layout_width="141dp"
-        android:layout_height="53dp"
-        android:hint="Celsius ?"
-        tools:layout_editor_absoluteX="28dp"
-        tools:layout_editor_absoluteY="193dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
