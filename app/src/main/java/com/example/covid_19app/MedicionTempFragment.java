@@ -15,7 +15,16 @@ import android.widget.Button;
  */
 public class MedicionTempFragment extends Fragment {
 
-   // constructo por defecto
+    String nombre = "Alberto";
+    String apellidos = " Barberá";
+    String ciudad= "Orihuela";
+    String provincia= "Alicante";
+    int tempetatura =35;
+    int tipotemperatura = 1;
+
+
+
+   // constructor por defecto
     public MedicionTempFragment() {
         // Required empty public constructor
     }
@@ -41,7 +50,8 @@ public class MedicionTempFragment extends Fragment {
           buttonFinalizar.setOnClickListener(new View.OnClickListener() {
               @Override
               public void onClick(View v) {
-                 Fragment informeFragment = new InformeFragment();
+                 Fragment informeFragment = new InformeFragment(nombre,apellidos,
+                         tempetatura,tipotemperatura,ciudad,provincia );
 
                   FragmentTransaction transaction = getActivity().getSupportFragmentManager()
                           .beginTransaction();
