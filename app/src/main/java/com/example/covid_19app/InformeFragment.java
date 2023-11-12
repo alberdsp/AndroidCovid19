@@ -21,13 +21,9 @@ public class InformeFragment extends Fragment {
 
 
     // declaramos atributos de la clase que vendrán por parametro al instanciarla
-     String nombre,apellidos,ciudad,provincia;
+    TomaDeTemperatura tomaDeTemperatura = new TomaDeTemperatura();
 
-   // int que recibe 1 si es celsius y 2 si es fahrenheit
-
-     int tipotemperatura,temperatura;
-
-     // declaramos los objetos que vamos a utilizar en la vista
+    // declaramos los objetos que vamos a utilizar en la vista
 
     View vista;
     TextView textViewNombre,textViewApellidos,textViewTemperatura,textViewciudad,textViewProvincia;
@@ -38,25 +34,9 @@ public class InformeFragment extends Fragment {
 
     }
 
-    /**
-     *  constructor que recibe por parametro
-     * @param nombre     String nombre
-     * @param apellidos   String apellidos
-     * @param temperatura     int temperatura
-     * @param tipotemperatura   int tipotemperatura  1 para celsius 2 para fahrenheit
-     * @param ciudad          String ciudad
-     * @param provincia        String provincia
-     */
-    public InformeFragment(String nombre,String apellidos,int temperatura,int tipotemperatura,
-                           String ciudad,String provincia) {
+    public InformeFragment(TomaDeTemperatura tomaDeTemperatura) {
 
-        this.nombre = nombre;
-        this.apellidos = apellidos;
-        this.temperatura = temperatura;
-        this.tipotemperatura = tipotemperatura;
-        this.ciudad = ciudad;
-        this.provincia = provincia;
-
+        this.tomaDeTemperatura = tomaDeTemperatura;
 
     }
 
@@ -169,15 +149,15 @@ public class InformeFragment extends Fragment {
 
 
         //  establecemos los valores de los textviews
-        textViewNombre.setText(nombre);
-        textViewApellidos.setText(apellidos);
-        textViewTemperatura.setText(String.valueOf(temperatura));
-        textViewciudad.setText(ciudad);
-        textViewProvincia.setText(provincia);
+        textViewNombre.setText(tomaDeTemperatura.getNombre());
+        textViewApellidos.setText(tomaDeTemperatura.getApellidos());
+        textViewTemperatura.setText(String.valueOf(tomaDeTemperatura.getTemperatura()));
+        textViewciudad.setText(tomaDeTemperatura.getCiudad());
+        textViewProvincia.setText(tomaDeTemperatura.getProvincia());
 
 
         // si la temperatura es buena ponemos en verde el botón sino en rojo
-        if (alertaTemp(temperatura,tipotemperatura)){
+        if (alertaTemp(tomaDeTemperatura.getTemperatura(), tomaDeTemperatura.getTipotemperatura())){
 
             buttonresultado.setBackgroundColor(Color.parseColor("#AF4C63"));
 
