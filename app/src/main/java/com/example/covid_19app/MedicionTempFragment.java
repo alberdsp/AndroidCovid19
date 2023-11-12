@@ -14,7 +14,7 @@ import android.widget.RadioGroup;
 import com.google.android.material.textfield.TextInputEditText;
 
 /**
- * Fragmente que contiene los datos de medición de temperatura
+ * Fragmente que maneja los datos de medición de temperatura
  */
 public class MedicionTempFragment extends Fragment {
 

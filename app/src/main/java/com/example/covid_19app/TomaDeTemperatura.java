@@ -82,10 +82,18 @@ public class TomaDeTemperatura {
         this.temperatura = temperatura;
     }
 
+    /**
+     *  devuleve el tipo de temperatura
+     * @return    1 si celsius 2 si fahrenheit
+     */
     public int getTipotemperatura() {
         return tipotemperatura;
     }
 
+    /**
+     *  establece el tipo de temperatura
+     * @param tipotemperatura    1 si celsius 2 si fahrenheit
+     */
     public void setTipotemperatura(int tipotemperatura) {
         this.tipotemperatura = tipotemperatura;
     }

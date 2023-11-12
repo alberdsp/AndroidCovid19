@@ -69,6 +69,7 @@
         android:layout_width="411dp"
         android:layout_height="wrap_content"
         android:hint="Temperatura"
+        android:inputType="number"
         app:layout_constraintTop_toBottomOf="@+id/textInputEditApellidos"
         tools:layout_editor_absoluteX="0dp" />
 

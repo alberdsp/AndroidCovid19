@@ -50,7 +50,7 @@ public class InformeFragment extends Fragment {
 
     public void onResume() {
         super.onResume();
-       // al recibir el foco cargamos los valores
+        // al recibir el foco cargamos los valores
         cargarValores();
 
     }
@@ -62,13 +62,13 @@ public class InformeFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         // declaramos la vista
-         vista = inflater.inflate(R.layout.fragment_informe, container, false);
+        vista = inflater.inflate(R.layout.fragment_informe, container, false);
 
-         textViewNombre = vista.findViewById(R.id.textViewNombre);
-         textViewApellidos= vista.findViewById(R.id.textViewApellidos);
-         textViewTemperatura = vista.findViewById(R.id.textViewTemperatura);
-         textViewciudad = vista.findViewById(R.id.textViewCiudad);
-         textViewProvincia = vista.findViewById(R.id.textViewProvincia);
+        textViewNombre = vista.findViewById(R.id.textViewNombre);
+        textViewApellidos= vista.findViewById(R.id.textViewApellidos);
+        textViewTemperatura = vista.findViewById(R.id.textViewTemperatura);
+        textViewciudad = vista.findViewById(R.id.textViewCiudad);
+        textViewProvincia = vista.findViewById(R.id.textViewProvincia);
 
 
 
@@ -102,7 +102,7 @@ public class InformeFragment extends Fragment {
      * Metodo que evalua la temperatura tomada para ver si es correcta
      * @param temperatura     entero con la temperatura tomada
      * @param tipotemperatura  entero 1 = Celsius , 2 =  Fahrenheit
-     * @return  true si la temperatura es buena, false si es alerta covid
+     * @return  false si la temperatura es buena, true si es alerta covid
      */
 
     public boolean alertaTemp(int temperatura, int tipotemperatura){

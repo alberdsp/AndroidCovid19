@@ -67,7 +67,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textViewConfig" />
 
     <TextView
-        android:id="@+id/textViewSwiFahrein"
+        android:id="@+id/textViewSwiFahren"
         android:layout_width="180dp"
         android:layout_height="29dp"
         android:layout_marginTop="56dp"
@@ -111,7 +111,7 @@
         android:text="GUARDAR"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewSwiFahrein"
+        app:layout_constraintTop_toBottomOf="@+id/textViewSwiFahren"
         app:rippleColor="#9C27B0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

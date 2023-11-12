@@ -17,9 +17,9 @@ import android.widget.Button;
  */
 public class MenuFragment extends Fragment {
 
-
+    // Constructor por defecto.
     public MenuFragment() {
-        // Required empty public constructor
+
     }
 
     @Override
@@ -81,7 +81,7 @@ public class MenuFragment extends Fragment {
     /**
      * ABF 2023
      * método para abrir el fragment correspondiente en función del botón pulsado
-     * @param fragment  instancia del objeto fragment que queremos abrir
+     * @param fragment  recibe del objeto fragment que queremos abrir
      */
 
     private void abrirFragment(Fragment fragment) {
