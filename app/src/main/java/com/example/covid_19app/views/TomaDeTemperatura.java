@@ -1,4 +1,4 @@
-package com.example.covid_19app;
+package com.example.covid_19app.views;
 
 /**
  * ABF 2023

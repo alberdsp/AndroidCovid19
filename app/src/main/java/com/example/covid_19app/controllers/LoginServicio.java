@@ -1,4 +1,4 @@
-package com.example.covid_19app;
+package com.example.covid_19app.controllers;
 
 import org.json.JSONException;
 import org.json.JSONObject;

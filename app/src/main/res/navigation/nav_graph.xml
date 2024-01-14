@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/menuFragment"
-        android:name="com.example.covid_19app.MenuFragment"
+        android:name="com.example.covid_19app.views.MenuFragment"
         android:label="fragment_menu"
         tools:layout="@layout/fragment_menu" >
         <action
@@ -22,7 +22,7 @@
     </fragment>
     <fragment
         android:id="@+id/medicionTempFragment"
-        android:name="com.example.covid_19app.MedicionTempFragment"
+        android:name="com.example.covid_19app.views.MedicionTempFragment"
         android:label="fragment_medicion_temp"
         tools:layout="@layout/fragment_medicion_temp" >
         <action
@@ -31,7 +31,7 @@
     </fragment>
     <fragment
         android:id="@+id/informeFragment"
-        android:name="com.example.covid_19app.InformeFragment"
+        android:name="com.example.covid_19app.views.InformeFragment"
         android:label="fragment_informe"
         tools:layout="@layout/fragment_informe" >
         <action
@@ -40,7 +40,7 @@
     </fragment>
     <fragment
         android:id="@+id/conversorFragment"
-        android:name="com.example.covid_19app.ConversorFragment"
+        android:name="com.example.covid_19app.views.ConversorFragment"
         android:label="fragment_conversor"
         tools:layout="@layout/fragment_conversor" >
         <action
@@ -49,7 +49,7 @@
     </fragment>
     <fragment
         android:id="@+id/configFragment"
-        android:name="com.example.covid_19app.ConfigFragment"
+        android:name="com.example.covid_19app.views.ConfigFragment"
         android:label="fragment_config"
         tools:layout="@layout/fragment_config" >
         <action

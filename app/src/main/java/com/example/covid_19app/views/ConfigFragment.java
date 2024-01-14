@@ -1,4 +1,4 @@
-package com.example.covid_19app;
+package com.example.covid_19app.views;
 
 import android.os.Bundle;
 
@@ -7,6 +7,8 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.example.covid_19app.R;
 
 /**
  * Fragment que de configuración

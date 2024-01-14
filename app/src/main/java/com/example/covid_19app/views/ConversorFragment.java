@@ -1,4 +1,4 @@
-package com.example.covid_19app;
+package com.example.covid_19app.views;
 
 import android.os.Bundle;
 
@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.covid_19app.R;
 import com.google.android.material.textfield.TextInputEditText;
 
 /**

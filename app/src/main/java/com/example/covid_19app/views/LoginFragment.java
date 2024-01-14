@@ -1,4 +1,4 @@
-package com.example.covid_19app;
+package com.example.covid_19app.views;
 
 
 import android.content.Intent;
@@ -8,10 +8,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
+
+import com.example.covid_19app.R;
+import com.example.covid_19app.controllers.LoginServicio;
+import com.example.covid_19app.models.User;
 
 
 /**
@@ -25,6 +30,12 @@ public class LoginFragment extends Fragment {
     private TextView textPassword;
     private Button buttonLogin;
 
+    private Switch recordarContrasena;
+
+    private User usuario = new User();
+
+
+
     // constructor por defecto, creamos la vista
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -35,7 +46,22 @@ public class LoginFragment extends Fragment {
         textLogin = view.findViewById(R.id.username);
         textPassword = view.findViewById(R.id.password);
         buttonLogin = view.findViewById(R.id.login);
+        recordarContrasena = view.findViewById(R.id.recordar);
+        // si usuario.getGuardar(getActivity()).equals("SI") no es nulo
 
+
+
+        // si el switch está activado, recupera los datos del shared preferences
+        if(usuario.getGuardar(getActivity()).equals("SI")){
+             recordarContrasena.setChecked(true);
+              textLogin.setText(usuario.getUsuarioShared(getActivity()));
+              textPassword.setText(usuario.getPasswordShared(getActivity()));
+
+        }
+
+
+
+        // listener del botón login
         buttonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -53,19 +79,38 @@ public class LoginFragment extends Fragment {
      * Si no es correcto muestra un toast con el error y cambia el color de los inputtext
      */
     private void hacerLogin() {
-        String username = textLogin.getText().toString();
-        String password = textPassword.getText().toString();
+
+
+
+        usuario.setUsuario(textLogin.getText().toString());
+        usuario.setPassword(textPassword.getText().toString());
 
         // realiza el login, si es correcto pasa al menu
-        LoginServicio loginServicio = new LoginServicio(username, password, new LoginServicio.Callback() {
+        LoginServicio loginServicio = new LoginServicio(usuario.getUsuario(), usuario.getPassword(), new LoginServicio.Callback() {
             @Override
             public void onResult(final String result) {
                 getActivity().runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
                         if ("loginok".equals(result)) {
-                            Intent intent = new Intent(getActivity(), MenuActivity.class);
-                            startActivity(intent);
+                            boolean recordar = recordarContrasena.isChecked();
+                            if (recordar) {
+                                // guardamos usuario y conrtaseña en shared preferences
+
+                                usuario.almacenarCredenciales(getActivity(), usuario.getUsuario(), usuario.getPassword());
+
+                                Intent intent = new Intent(getActivity(), MenuActivity.class);
+                                startActivity(intent);
+
+                                // si no esta activado el switch borramos las credenciales del shared preferences
+                            } else {
+                                 usuario.borrarPreferences(getActivity());
+                                Intent intent = new Intent(getActivity(), MenuActivity.class);
+                                startActivity(intent);
+                            }
+
+
+
                         } else {
                             // si no es correcto muestra un toast con el error y cambia el color de los inputtext
                             Toast.makeText(getActivity(), result, Toast.LENGTH_SHORT).show();
