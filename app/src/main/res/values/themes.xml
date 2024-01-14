@@ -6,4 +6,10 @@
     </style>
 
     <style name="Theme.Covid19App" parent="Base.Theme.Covid19App" />
+    <style name="Theme.Covid19App.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="Theme.Covid19App.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="Theme.Covid19App.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>
