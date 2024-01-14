@@ -7,15 +7,14 @@
     tools:context=".MainActivity">
 
     <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fragmentContainerViewLogin"
-        android:name="com.example.covid_19app.ui.login.LoginFragment"
-        android:layout_width="388dp"
-        android:layout_height="672dp"
+        android:id="@+id/fragmentContainerView"
+        android:name="com.example.covid_19app.LoginFragment"
+        android:layout_width="386dp"
+        android:layout_height="602dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintHorizontal_bias="0.48"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.257" />
-
+        app:layout_constraintVertical_bias="0.286" />
 </androidx.constraintlayout.widget.ConstraintLayout>
