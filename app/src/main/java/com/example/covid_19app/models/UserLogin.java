@@ -11,7 +11,7 @@ import android.widget.TextView;
  * @version 1.0
  *
  */
-public class User {
+public class UserLogin {
 
     // declaramos las variables que vamos a utilizar en la clase
     String usuario;
@@ -27,13 +27,13 @@ public class User {
 
 
     // constructor por defecto de la clase sin parámetros
-    public User() {
+    public UserLogin() {
 
     }
 
     // constructor por defecto de la clase recibe usuario y contraseña
 
-    public User(TextView textLogin, TextView textPassword) {
+    public UserLogin(TextView textLogin, TextView textPassword) {
         this.usuario = textLogin.getText().toString();
         this.password = textPassword.getText().toString();
 

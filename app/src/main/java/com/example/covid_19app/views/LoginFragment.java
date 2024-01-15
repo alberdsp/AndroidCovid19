@@ -16,7 +16,7 @@ import androidx.fragment.app.Fragment;
 
 import com.example.covid_19app.R;
 import com.example.covid_19app.controllers.LoginServicio;
-import com.example.covid_19app.models.User;
+import com.example.covid_19app.models.UserLogin;
 
 
 /**
@@ -32,7 +32,7 @@ public class LoginFragment extends Fragment {
 
     private Switch recordarContrasena;
 
-    private User usuario = new User();
+    private UserLogin usuario = new UserLogin();
 
 
 
