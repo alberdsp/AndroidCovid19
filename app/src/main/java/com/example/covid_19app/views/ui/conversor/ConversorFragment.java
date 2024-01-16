@@ -1,8 +1,11 @@
-package com.example.covid_19app.views;
+package com.example.covid_19app.views.ui.conversor;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -29,6 +32,8 @@ public class ConversorFragment extends Fragment {
 
     TextView textoutcelsius;
     TextView textoutfahren;
+
+    private ConversorViewModel conversorViewModel;
 
 
     // Constructor por defecto
@@ -91,6 +96,13 @@ public class ConversorFragment extends Fragment {
         return vista;
     }
 
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        conversorViewModel = new ViewModelProvider(this).get(ConversorViewModel.class);
+    }
+
     /**
      *  Método que transforma de celsius a fahrenheit
      * @param celsius   int grados celsius a convertir
@@ -128,34 +140,20 @@ public class ConversorFragment extends Fragment {
     /**
      * método que realiza los calculos de temperaturas y los establece en pantalla
      */
-    public void calcularTemperaturas(){
+    public void calcularTemperaturas() {
+        int celsiusIn = 0;
+        int fahrenheitIn = 0;
 
-        // creamos e instanciamos las variales para calcular después
-
-        int celsiusIn=0;
-        int celsiusOut=0;
-        int fahrenIn =0;
-        int fahrenOut = 0;
-
-
-
-
-        // si el inputext está vacio no hacemos nada si no esta vacio calculamos
-        if(!"".equals( textinputcelsius.getText().toString())){
+        if (!textinputcelsius.getText().toString().isEmpty()) {
             celsiusIn = Integer.parseInt(textinputcelsius.getText().toString());
-
-            textoutfahren.setText(String.valueOf(conversorCeltoFahren(celsiusIn)));
+            conversorViewModel.convertCelsiusToFahrenheit(celsiusIn);
         }
 
-
-        // si el inputext está vacio no hacemos nada si no esta vacio calculamos
-        if(!"".equals( textinputfahren.getText().toString())) {
-            fahrenIn = Integer.parseInt(textinputfahren.getText().toString());
-            textoutcelsius.setText(String.valueOf(conversorFahrentoCel(fahrenIn)));
+        if (!textinputfahren.getText().toString().isEmpty()) {
+            fahrenheitIn = Integer.parseInt(textinputfahren.getText().toString());
+            conversorViewModel.convertFahrenheitToCelsius(fahrenheitIn);
         }
-
     }
-
 
 
 

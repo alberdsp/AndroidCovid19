@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/menuFragment">
+
+    <fragment
+        android:id="@+id/menuFragment"
+        android:name="com.example.covid_19app.views.MenuFragment"
+        android:label="fragment_menu"
+        tools:layout="@layout/fragment_menu" >
+        <action
+            android:id="@+id/action_menuFragment_to_medicionTempFragment"
+            app:destination="@id/medicionTempFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_conversorFragment"
+            app:destination="@id/conversorFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_configFragment"
+            app:destination="@id/configFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/medicionTempFragment"
+        android:name="com.example.covid_19app.views.MedicionTempFragment"
+        android:label="fragment_medicion_temp"
+        tools:layout="@layout/fragment_medicion_temp" >
+        <action
+            android:id="@+id/action_medicionTempFragment_to_informeFragment"
+            app:destination="@id/informeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/informeFragment"
+        android:name="com.example.covid_19app.views.InformeFragment"
+        android:label="fragment_informe"
+        tools:layout="@layout/fragment_informe" >
+        <action
+            android:id="@+id/action_informeFragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/conversorFragment"
+        android:name="com.example.covid_19app.views.ui.conversor.ConversorFragment"
+        android:label="fragment_conversor"
+        tools:layout="@layout/fragment_conversor" >
+        <action
+            android:id="@+id/action_conversorFragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/configFragment"
+        android:name="com.example.covid_19app.views.ConfigFragment"
+        android:label="fragment_config"
+        tools:layout="@layout/fragment_config" >
+        <action
+            android:id="@+id/action_configFragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
+    </fragment>
+</navigation>

@@ -22,4 +22,9 @@
         android:name="com.example.covid_19app.views.ui.slideshow.SlideshowFragment"
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_slideshow" />
+    <fragment
+        android:id="@+id/conversorFragment2"
+        android:name="com.example.covid_19app.views.ui.conversor.ConversorFragment"
+        android:label="fragment_conversor"
+        tools:layout="@layout/fragment_conversor" />
 </navigation>

@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.example.covid_19app.R;
+import com.example.covid_19app.views.ui.conversor.ConversorFragment;
 
 /**
  * ABF 2023
