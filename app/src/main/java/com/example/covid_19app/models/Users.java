@@ -1,6 +1,6 @@
 package com.example.covid_19app.models;
 
-
+import org.json.JSONObject;
 /**
  * ABF 2024
  * Clase que contempla los usuarios
@@ -36,6 +36,21 @@ public class Users {
     }
 
 
+
+
+
+    // Constructor que acepta un JSONObject
+    public Users(JSONObject jsonObject) {
+        if (jsonObject != null) {
+            this.id = jsonObject.optInt("id");
+            this.nombre = jsonObject.optString("nombre");
+            this.apellidos = jsonObject.optString("apellidos");
+            this.temperatura = jsonObject.optInt("temperatura");
+            this.format = jsonObject.optInt("format");
+            this.ciudad = jsonObject.optString("ciudad");
+            this.provincia = jsonObject.optString("provincia");
+        }
+    }
 
       // getters y setters de las variables de la clase
 

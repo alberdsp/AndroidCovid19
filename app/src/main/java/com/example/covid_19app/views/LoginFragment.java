@@ -15,7 +15,7 @@ import android.widget.Toast;
 import androidx.fragment.app.Fragment;
 
 import com.example.covid_19app.R;
-import com.example.covid_19app.controllers.LoginServicio;
+import com.example.covid_19app.controllers.LoginController;
 import com.example.covid_19app.models.UserLogin;
 
 
@@ -86,7 +86,7 @@ public class LoginFragment extends Fragment {
         usuario.setPassword(textPassword.getText().toString());
 
         // realiza el login, si es correcto pasa al menu
-        LoginServicio loginServicio = new LoginServicio(usuario.getUsuario(), usuario.getPassword(), new LoginServicio.Callback() {
+        LoginController loginServicio = new LoginController(usuario.getUsuario(), usuario.getPassword(), new LoginController.Callback() {
             @Override
             public void onResult(final String result) {
                 getActivity().runOnUiThread(new Runnable() {

@@ -1,6 +1,5 @@
 package com.example.covid_19app.controllers;
 
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
@@ -9,7 +8,7 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
-
+import com.example.covid_19app.models.Conexion;
 
 /**
  * Servicio que se encarga de realizar la conexión con el servidor para el login
@@ -19,7 +18,7 @@ import java.nio.charset.StandardCharsets;
  *
  *
  */
-public class LoginServicio implements Runnable {
+public class LoginController implements Runnable {
 
     private final String username;
     private final String password;
@@ -27,7 +26,7 @@ public class LoginServicio implements Runnable {
 
 
     // constructor que recibe los datos del login y el callback
-    public LoginServicio(String username, String password, Callback callback) {
+    public LoginController(String username, String password, Callback callback) {
         this.username = username;
         this.password = password;
         this.callback = callback;
@@ -45,8 +44,10 @@ public class LoginServicio implements Runnable {
     // método que realiza el login recibiendo los datos de los inputtext
     private String login(String username, String password) {
         String loginResult = "error de conexión al servidor";
+        Conexion conexion = new Conexion();
+
         try {
-            URL url = new URL("https://jumerca.es/apicovid/auth.php");
+            URL url = new URL(conexion.getUrl() + "auth.php");
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 
             connection.setRequestMethod("POST");

@@ -9,7 +9,7 @@ package com.example.covid_19app.models;
  */
 public class Conexion {
 
-     String url = "https://jumerca.es/apicovid/list.php";
+     String url = "https://jumerca.es/apicovid/";
 
     public String getUrl() {
         return url;
