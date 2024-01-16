@@ -13,16 +13,16 @@
         android:layout_height="wrap_content"
         android:textAlignment="center"
         android:textSize="20sp"
-        android:text="Bienvenido al Fragmento de Inicio"
+        android:text="Lista de pacientes"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/list_view_users"
+        app:layout_constraintBottom_toTopOf="@id/listViewUsers"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"/>
 
     <ListView
-        android:id="@+id/list_view_users"
+        android:id="@+id/listViewUsers"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="8dp"

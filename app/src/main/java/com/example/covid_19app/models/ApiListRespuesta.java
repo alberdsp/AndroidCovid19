@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * ABF 2024
  * Clase que contempla la respuesta del web service
- *  de la aplicación
+ *  de la aplicación controla si fue exitosa o no y devuelve un listado de usuarios
  *
  */
 public class ApiListRespuesta {

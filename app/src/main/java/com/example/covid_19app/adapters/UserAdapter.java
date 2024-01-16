@@ -11,12 +11,32 @@ import com.example.covid_19app.R;
 import com.example.covid_19app.models.Users;
 import java.util.List;
 
+
+
+/**
+ * ABF 2024
+ * Clase que contiene el adaptador para el listview de usuarios lo formatea en 2 lineas
+ */
 public class UserAdapter extends ArrayAdapter<Users> {
 
+
+    /**
+     * Constructor
+     * @param context contexto de la aplicación
+     * @param users listado de usuarios
+     */
     public UserAdapter(Context context, List<Users> users) {
         super(context, 0, users);
     }
 
+
+    /**
+     * Método que devuelve la vista de un usuario
+     * @param position posición del usuario en la lista
+     * @param convertView vista
+     * @param parent vista padre
+     * @return vista del usuario
+     */
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         // Obtener el objeto Users para esta posición
@@ -35,7 +55,8 @@ public class UserAdapter extends ArrayAdapter<Users> {
         // Rellenar los datos en los TextViews
         tvUserName.setText(user.getNombre() + " " + user.getApellidos());
         tvUserDetails.setText(user.getCiudad() + ", " + user.getProvincia());
-        tvTemperature.setText(String.valueOf(user.getTemperatura()) + "°C");
+       // tvTemperature.setText(String.valueOf(user.getTemperatura()) + "°C");
+        tvTemperature.setText(String.valueOf(user.getTemperatura()));
 
         return convertView;
     }

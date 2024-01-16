@@ -112,6 +112,15 @@ public class Users {
     }
 
 
+    public void setId(String id) {
+        this.id = Integer.parseInt(id);
+    }
 
+    public void setTemperatura(String temperatura) {
+        this.temperatura = Integer.parseInt(temperatura);
+    }
 
+    public void setFormat(String format) {
+        this.format = Integer.parseInt(format);
+    }
 }
