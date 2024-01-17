@@ -23,8 +23,12 @@
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_slideshow" />
     <fragment
-        android:id="@+id/conversorFragment2"
+        android:id="@+id/conversorFragment"
         android:name="com.example.covid_19app.views.ui.conversor.ConversorFragment"
-        android:label="fragment_conversor"
-        tools:layout="@layout/fragment_conversor" />
+        android:label="Conversor Tempreratura"
+        tools:layout="@layout/fragment_conversor" >
+        <action
+            android:id="@+id/action_conversorFragment_to_nav_home"
+            app:destination="@id/nav_home" />
+    </fragment>
 </navigation>

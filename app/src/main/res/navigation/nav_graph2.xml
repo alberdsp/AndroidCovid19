@@ -14,9 +14,6 @@
             android:id="@+id/action_menuFragment_to_medicionTempFragment"
             app:destination="@id/medicionTempFragment" />
         <action
-            android:id="@+id/action_menuFragment_to_conversorFragment"
-            app:destination="@id/conversorFragment" />
-        <action
             android:id="@+id/action_menuFragment_to_configFragment"
             app:destination="@id/configFragment" />
     </fragment>
@@ -36,15 +33,6 @@
         tools:layout="@layout/fragment_informe" >
         <action
             android:id="@+id/action_informeFragment_to_menuFragment"
-            app:destination="@id/menuFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/conversorFragment"
-        android:name="com.example.covid_19app.views.ui.conversor.ConversorFragment"
-        android:label="fragment_conversor"
-        tools:layout="@layout/fragment_conversor" >
-        <action
-            android:id="@+id/action_conversorFragment_to_menuFragment"
             app:destination="@id/menuFragment" />
     </fragment>
     <fragment

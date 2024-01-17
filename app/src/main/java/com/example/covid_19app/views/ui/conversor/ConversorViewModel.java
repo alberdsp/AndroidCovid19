@@ -5,35 +5,32 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 
-
-/**
- * Clase que se encarga la vista modelo del conversor de temperatura
- */
+// clase vista modelo para el conversor de temperaturas
 public class ConversorViewModel extends ViewModel {
 
-    private final MutableLiveData<Integer> celsiusToFahrenheit;
-    private final MutableLiveData<Integer> fahrenheitToCelsius;
+    private final MutableLiveData<String> celsiusToFahrenheitResult = new MutableLiveData<>();
+    private final MutableLiveData<String> fahrenheitToCelsiusResult = new MutableLiveData<>();
 
-    public ConversorViewModel() {
-        celsiusToFahrenheit = new MutableLiveData<>();
-        fahrenheitToCelsius = new MutableLiveData<>();
-    }
 
-    public LiveData<Integer> getCelsiusToFahrenheit() {
-        return celsiusToFahrenheit;
-    }
 
-    public LiveData<Integer> getFahrenheitToCelsius() {
-        return fahrenheitToCelsius;
-    }
-
+    // método para convertir de celsius a fahrenheit
     public void convertCelsiusToFahrenheit(int celsius) {
         int fahrenheit = ((celsius * 9) / 5) + 32;
-        celsiusToFahrenheit.setValue(fahrenheit);
+        celsiusToFahrenheitResult.setValue(String.valueOf(fahrenheit));
     }
 
+    //
     public void convertFahrenheitToCelsius(int fahrenheit) {
         int celsius = ((fahrenheit - 32) * 5) / 9;
-        fahrenheitToCelsius.setValue(celsius);
+        fahrenheitToCelsiusResult.setValue(String.valueOf(celsius));
+    }
+
+    // métodos para obtener los resultados de las conversiones
+    public LiveData<String> getCelsiusToFahrenheitResult() {
+        return celsiusToFahrenheitResult;
+    }
+
+    public LiveData<String> getFahrenheitToCelsiusResult() {
+        return fahrenheitToCelsiusResult;
     }
 }

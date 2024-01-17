@@ -1,6 +1,7 @@
 package com.example.covid_19app.views;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 
@@ -31,8 +32,16 @@ private ActivityMain2Binding binding;
         binding.appBarMain.fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Log.d("MainActivity2", "FAB Clicked"); // Debug log
+
+                try {
+                    NavController navController = Navigation.findNavController(MainActivity2.this, R.id.nav_host_fragment_content_main);
+                    navController.navigate(R.id.conversorFragment);
+
+                
+                } catch (Exception e) {
+                    Log.e("MainActivity2", "Navigation Error", e); // Error log
+                }
             }
         });
         DrawerLayout drawer = binding.drawerLayout;
