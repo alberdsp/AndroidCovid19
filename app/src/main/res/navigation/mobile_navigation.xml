@@ -31,4 +31,13 @@
             android:id="@+id/action_conversorFragment_to_nav_home"
             app:destination="@id/nav_home" />
     </fragment>
+    <fragment
+        android:id="@+id/configFragment"
+        android:name="com.example.covid_19app.views.ui.configuration.ConfigFragment"
+        android:label="Configuración"
+        tools:layout="@layout/fragment_config" >
+        <action
+            android:id="@+id/action_configFragment_to_nav_home"
+            app:destination="@id/nav_home" />
+    </fragment>
 </navigation>

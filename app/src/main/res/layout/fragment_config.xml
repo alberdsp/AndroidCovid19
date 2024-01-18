@@ -5,9 +5,10 @@
     android:id="@+id/frameLayout5"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".views.ConfigFragment">
+    tools:context=".views.ui.configuration.ConfigFragment">
 
     <!-- TODO: Update blank fragment layout -->
+
     <TextView
         android:id="@+id/textView5"
         android:layout_width="0dp"
@@ -15,8 +16,10 @@
         android:text="@string/hello_blank_fragment"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/textViewTitulo6"
@@ -39,79 +42,56 @@
         android:id="@+id/textViewConfig"
         android:layout_width="288dp"
         android:layout_height="28dp"
-        android:layout_marginTop="68dp"
+        android:layout_marginTop="168dp"
         android:fontFamily="@font/abeezee"
-        android:text="Configuración :"
+        android:text="Tipo de medición:"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.617"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewTitulo6" />
 
     <TextView
         android:id="@+id/textViewSwiCelsius"
-        android:layout_width="166dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="60dp"
+        android:layout_width="73dp"
+        android:layout_height="34dp"
+        android:layout_marginTop="92dp"
         android:fontFamily="@font/abeezee"
         android:text="Celsius"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.253"
+        app:layout_constraintHorizontal_bias="0.183"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewConfig" />
 
     <TextView
         android:id="@+id/textViewSwiFahren"
-        android:layout_width="180dp"
+        android:layout_width="107dp"
         android:layout_height="29dp"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="360dp"
         android:fontFamily="@font/abeezee"
         android:text="Fahrenheit"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.268"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewSwiCelsius" />
+        app:layout_constraintHorizontal_bias="0.393"
+        app:layout_constraintStart_toEndOf="@+id/switchstate"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Switch
-        android:id="@+id/switchCelsius"
+        android:id="@+id/switchstate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="92dp"
         android:checked="true"
         android:enabled="true"
         android:trackTint="#9C27B0"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.14"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/textViewSwiCelsius"
         app:layout_constraintTop_toBottomOf="@+id/textViewConfig" />
-
-    <Switch
-        android:id="@+id/switchFahren"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="60dp"
-        android:trackTint="#9C27B0"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.159"
-        app:layout_constraintStart_toEndOf="@+id/textViewSwiCelsius"
-        app:layout_constraintTop_toBottomOf="@+id/switchCelsius" />
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="88dp"
-        android:backgroundTint="#9C27B0"
-        android:text="GUARDAR"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewSwiFahren"
-        app:rippleColor="#9C27B0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

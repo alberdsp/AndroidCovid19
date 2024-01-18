@@ -5,7 +5,7 @@
     android:id="@+id/frameLayout5"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".views.ConfigFragment">
+    tools:context=".views.ui.configuration.ConfigFragment">
 
     <!-- TODO: Update blank fragment layout -->
 
@@ -44,7 +44,7 @@
         android:layout_height="28dp"
         android:layout_marginTop="36dp"
         android:fontFamily="@font/abeezee"
-        android:text="Configuración :"
+        android:text="Tipo de medición"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -70,48 +70,25 @@
         android:id="@+id/textViewSwiFahren"
         android:layout_width="180dp"
         android:layout_height="29dp"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="160dp"
         android:fontFamily="@font/abeezee"
         android:text="Fahreinheit"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.268"
+        app:layout_constraintHorizontal_bias="0.805"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewSwiCelsius" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Switch
-        android:id="@+id/switchCelsius"
+        android:id="@+id/switchstate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="28dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.159"
+        app:layout_constraintHorizontal_bias="0.014"
         app:layout_constraintStart_toEndOf="@+id/textViewSwiCelsius"
         app:layout_constraintTop_toBottomOf="@+id/textViewConfig" />
-
-    <Switch
-        android:id="@+id/switchFahren"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="60dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.159"
-        app:layout_constraintStart_toEndOf="@+id/textViewSwiCelsius"
-        app:layout_constraintTop_toBottomOf="@+id/switchCelsius" />
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="56dp"
-        android:backgroundTint="#9C27B0"
-        android:text="GUARDAR"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewSwiFahren"
-        app:rippleColor="#9C27B0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

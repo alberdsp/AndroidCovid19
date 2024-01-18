@@ -37,7 +37,7 @@
     </fragment>
     <fragment
         android:id="@+id/configFragment"
-        android:name="com.example.covid_19app.views.ConfigFragment"
+        android:name="com.example.covid_19app.views.ui.configuration.ConfigFragment"
         android:label="fragment_config"
         tools:layout="@layout/fragment_config" >
         <action

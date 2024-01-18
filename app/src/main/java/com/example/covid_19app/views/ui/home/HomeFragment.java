@@ -16,6 +16,7 @@ import com.example.covid_19app.databinding.FragmentHomeBinding;
 import com.example.covid_19app.models.ApiListRespuesta;
 import com.example.covid_19app.models.Users;
 import com.example.covid_19app.views.ui.home.HomeViewModel;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,16 +38,16 @@ public class HomeFragment extends Fragment implements ListController.Callback {
                              ViewGroup container, Bundle savedInstanceState) {
         HomeViewModel homeViewModel =
                 new ViewModelProvider(this).get(HomeViewModel.class);
-
+        // hacemos el binding de la vista
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-
+        // usamos el adapter para mostrar los usuarios en la lista ordenados
         final ListView listView = binding.listViewUsers;
         usersList = new ArrayList<>();
         adapter = new UserAdapter(requireContext(), usersList);
         listView.setAdapter(adapter);
 
-        // Start fetching the users
+        // cargamos la lista de usuarios e iniciamos el hilo
         ListController listController = new ListController(this);
         Thread thread = new Thread(listController);
         thread.start();
@@ -67,7 +68,7 @@ public class HomeFragment extends Fragment implements ListController.Callback {
             usersList.addAll(result.getUsuarios());
             adapter.notifyDataSetChanged();
         } else {
-            // Handle error
+            Snackbar.make(getView(), "Error: no se completó la petición al servidor" , Snackbar.LENGTH_LONG).show();
         }
     }
 }
