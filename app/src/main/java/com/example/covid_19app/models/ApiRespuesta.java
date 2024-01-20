@@ -15,7 +15,8 @@ public class ApiRespuesta {
     private String error;
     private List<Users> users;
 
-    private String userId;
+    private String userid;
+
 
 
 
@@ -51,11 +52,11 @@ public class ApiRespuesta {
 
 
     public String getUserId() {
-        return userId;
+        return userid;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public void setUserId(String temp) {
+        this.userid = temp;
     }
 
 }

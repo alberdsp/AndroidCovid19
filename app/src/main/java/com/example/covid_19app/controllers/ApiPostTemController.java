@@ -69,14 +69,14 @@ public class ApiPostTemController implements Runnable {
 
         //  Creamos objeto url que tendrá la url del servidor y los parametros que se enviarán
         try {
-            URL url = new URL(conexion.getUrl() + "medicion.php");
+            URL url = new URL(conexion.getUrl() + "temp.php");
             connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("POST");
             connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
             connection.setDoOutput(true);
 
             String postData = String.format(
-                    "nombre=%s&apellidos=%s&temperatura=%s&ciudad=%s&provincia=%s",
+                    "nombre=%s&apellidos=%s&temperatura=%s&format=%s&ciudad=%s&provincia=%s",
                     URLEncoder.encode(tomaDeTemperatura.getNombre(), StandardCharsets.UTF_8.name()),
                     URLEncoder.encode(tomaDeTemperatura.getApellidos(), StandardCharsets.UTF_8.name()),
                     URLEncoder.encode(String.valueOf(tomaDeTemperatura.getTemperatura()), StandardCharsets.UTF_8.name()),
@@ -102,7 +102,7 @@ public class ApiPostTemController implements Runnable {
             JSONObject jsonResponse = new JSONObject(response.toString());
             apiRespuesta.setSuccess(jsonResponse.optBoolean("success"));
             apiRespuesta.setError(jsonResponse.optString("error"));
-            apiRespuesta.setUserId(jsonResponse.optString("userId"));
+            apiRespuesta.setUserId(jsonResponse.optString("temp"));
         } catch (IOException e) {
             throw e;
         }
