@@ -13,7 +13,7 @@ import android.widget.RadioGroup;
 
 import com.example.covid_19app.R;
 import com.example.covid_19app.views.InformeFragment;
-import com.example.covid_19app.views.TomaDeTemperatura;
+import com.example.covid_19app.models.TomaDeTemperatura;
 import com.google.android.material.textfield.TextInputEditText;
 
 /**

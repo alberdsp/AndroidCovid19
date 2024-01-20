@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.covid_19app.R;
+import com.example.covid_19app.models.TomaDeTemperatura;
 
 /**
  * ABF 2023

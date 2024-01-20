@@ -2,7 +2,7 @@ package com.example.covid_19app.views.ui.medicionTemperatura;
 
 import androidx.lifecycle.ViewModel;
 
-import com.example.covid_19app.views.TomaDeTemperatura;
+import com.example.covid_19app.models.TomaDeTemperatura;
 
 public class MedicionViewModel extends ViewModel {
     private TomaDeTemperatura tomaDeTemperatura = new TomaDeTemperatura();
