@@ -11,20 +11,8 @@
         android:label="fragment_menu"
         tools:layout="@layout/fragment_menu" >
         <action
-            android:id="@+id/action_menuFragment_to_medicionTempFragment"
-            app:destination="@id/medicionTempFragment" />
-        <action
             android:id="@+id/action_menuFragment_to_configFragment"
             app:destination="@id/configFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/medicionTempFragment"
-        android:name="com.example.covid_19app.views.MedicionTempFragment"
-        android:label="fragment_medicion_temp"
-        tools:layout="@layout/fragment_medicion_temp" >
-        <action
-            android:id="@+id/action_medicionTempFragment_to_informeFragment"
-            app:destination="@id/informeFragment" />
     </fragment>
     <fragment
         android:id="@+id/informeFragment"

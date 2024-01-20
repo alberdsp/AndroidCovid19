@@ -36,7 +36,7 @@ private ActivityMain2Binding binding;
 
                 try {
                     NavController navController = Navigation.findNavController(MainActivity2.this, R.id.nav_host_fragment_content_main);
-                    navController.navigate(R.id.conversorFragment); navController.navigate(R.id.configFragment);
+                    navController.navigate(R.id.conversorFragment);navController.navigate(R.id.medicionFragment); navController.navigate(R.id.configFragment);
 
 
                 } catch (Exception e) {
@@ -49,7 +49,7 @@ private ActivityMain2Binding binding;
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.conversorFragment, R.id.configFragment, R.id.nav_slideshow)
+                R.id.nav_home, R.id.medicionFragment, R.id.conversorFragment, R.id.configFragment, R.id.nav_slideshow)
                 .setOpenableLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);

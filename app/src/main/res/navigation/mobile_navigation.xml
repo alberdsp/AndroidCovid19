@@ -40,4 +40,13 @@
             android:id="@+id/action_configFragment_to_nav_home"
             app:destination="@id/nav_home" />
     </fragment>
+    <fragment
+        android:id="@+id/medicionFragment"
+        android:name="com.example.covid_19app.views.ui.medicionTemperatura.MedicionFragment"
+        android:label="fragment_medicion"
+        tools:layout="@layout/fragment_medicion" >
+        <action
+            android:id="@+id/action_medicionFragment_to_nav_home"
+            app:destination="@id/nav_home" />
+    </fragment>
 </navigation>

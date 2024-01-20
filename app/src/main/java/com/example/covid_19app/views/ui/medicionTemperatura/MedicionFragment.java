@@ -1,4 +1,4 @@
-package com.example.covid_19app.views;
+package com.example.covid_19app.views.ui.medicionTemperatura;
 
 import android.os.Bundle;
 
@@ -19,7 +19,7 @@ import com.google.android.material.textfield.TextInputEditText;
 /**
  * Fragmente que maneja los datos de medición de temperatura
  */
-public class MedicionTempFragment extends Fragment {
+public class MedicionFragment extends Fragment {
 
 
     // declaramos los objetos que vamos a utilizar
@@ -36,7 +36,7 @@ public class MedicionTempFragment extends Fragment {
 
 
    // constructor por defecto
-    public MedicionTempFragment() {
+    public MedicionFragment() {
         // Required empty public constructor
     }
 
@@ -52,7 +52,7 @@ public class MedicionTempFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         // declaramos la vista
-         vista = inflater.inflate(R.layout.fragment_medicion_temp, container, false);
+         vista = inflater.inflate(R.layout.fragment_medicion, container, false);
 
         // declaramos el botón Finalizar que pasa al fragment informe
          buttonFinalizar = vista.findViewById(R.id.buttonFinalizar);

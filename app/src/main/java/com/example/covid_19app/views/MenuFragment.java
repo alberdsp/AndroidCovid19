@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.example.covid_19app.R;
+import com.example.covid_19app.views.ui.medicionTemperatura.MedicionFragment;
 import com.example.covid_19app.views.ui.configuration.ConfigFragment;
 import com.example.covid_19app.views.ui.conversor.ConversorFragment;
 
@@ -53,7 +54,7 @@ public class MenuFragment extends Fragment {
         buttonMedicion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                abrirFragment(new MedicionTempFragment());
+                abrirFragment(new MedicionFragment());
             }
         });
 
