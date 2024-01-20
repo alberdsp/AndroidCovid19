@@ -11,11 +11,10 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.covid_19app.adapters.UserAdapter;
-import com.example.covid_19app.controllers.ListController;
+import com.example.covid_19app.controllers.ApiGetListController;
 import com.example.covid_19app.databinding.FragmentHomeBinding;
-import com.example.covid_19app.models.ApiListRespuesta;
+import com.example.covid_19app.models.ApiRespuesta;
 import com.example.covid_19app.models.Users;
-import com.example.covid_19app.views.ui.home.HomeViewModel;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
@@ -28,7 +27,7 @@ import java.util.List;
  */
 
 
-public class HomeFragment extends Fragment implements ListController.Callback {
+public class HomeFragment extends Fragment implements ApiGetListController.Callback {
 
     private FragmentHomeBinding binding;
     private List<Users> usersList;
@@ -48,8 +47,8 @@ public class HomeFragment extends Fragment implements ListController.Callback {
         listView.setAdapter(adapter);
 
         // cargamos la lista de usuarios e iniciamos el hilo
-        ListController listController = new ListController(this);
-        Thread thread = new Thread(listController);
+        ApiGetListController apiGetListController = new ApiGetListController(this);
+        Thread thread = new Thread(apiGetListController);
         thread.start();
 
         return root;
@@ -62,7 +61,7 @@ public class HomeFragment extends Fragment implements ListController.Callback {
     }
 
     @Override
-    public void onResult(ApiListRespuesta result) {
+    public void onResult(ApiRespuesta result) {
         if (result.isSuccess()) {
             usersList.clear();
             usersList.addAll(result.getUsuarios());

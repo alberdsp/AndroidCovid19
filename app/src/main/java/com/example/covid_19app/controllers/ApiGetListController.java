@@ -1,6 +1,6 @@
 package com.example.covid_19app.controllers;
 
-import com.example.covid_19app.models.ApiListRespuesta;
+import com.example.covid_19app.models.ApiRespuesta;
 import com.example.covid_19app.models.Users;
 import com.example.covid_19app.models.Conexion;
 
@@ -23,21 +23,21 @@ import java.util.List;
  */
 
 
-public class ListController implements Runnable {
+public class ApiGetListController implements Runnable {
 
     private final Callback callback;
     private final Conexion conexion;
 
-    public ListController(Callback callback) {
+    public ApiGetListController(Callback callback) {
         this.callback = callback;
         this.conexion = new Conexion();
     }
 
 
-    // Método que se encarga de envuar el callback al hilo principal.
+    // Método que se encarga de enviar el callback al hilo principal.
     @Override
     public void run() {
-        ApiListRespuesta response = fetchUsers();
+        ApiRespuesta response = fetchUsers();
         if (callback != null) {
             callback.onResult(response);
         }
@@ -51,8 +51,8 @@ public class ListController implements Runnable {
      * @return Devuelve un objeto de tipo ApiListRespuesta con la lista de usuarios registrados en la aplicación.
      */
 
-    private ApiListRespuesta fetchUsers() {
-        ApiListRespuesta apiRespuesta = new ApiListRespuesta();
+    private ApiRespuesta fetchUsers() {
+        ApiRespuesta apiRespuesta = new ApiRespuesta();
         List<Users> usersList = new ArrayList<>();
 
         try {
@@ -106,7 +106,14 @@ public class ListController implements Runnable {
         return apiRespuesta;
     }
 
-    public interface Callback {
-        void onResult(ApiListRespuesta result);
+   public interface Callback {
+        void onResult(ApiRespuesta result);
+
     }
+
+
+
+
+
+
 }

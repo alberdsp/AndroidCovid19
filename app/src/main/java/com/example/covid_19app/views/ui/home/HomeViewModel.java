@@ -1,14 +1,12 @@
 package com.example.covid_19app.views.ui.home;
 
-import android.util.Log;
-
 
 import android.app.Application;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
-import com.example.covid_19app.controllers.ListController;
-import com.example.covid_19app.models.ApiListRespuesta;
+import com.example.covid_19app.controllers.ApiGetListController;
+import com.example.covid_19app.models.ApiRespuesta;
 import com.example.covid_19app.models.Users;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
@@ -46,9 +44,9 @@ public class HomeViewModel extends AndroidViewModel {
     private void loadUsers() {
 
             ExecutorService executorService = Executors.newSingleThreadExecutor();
-            executorService.execute(new ListController(new ListController.Callback() {
+            executorService.execute(new ApiGetListController(new ApiGetListController.Callback() {
                 @Override
-                public void onResult(ApiListRespuesta result) {
+                public void onResult(ApiRespuesta result) {
                     if (result.isSuccess()) {
                         userItemsList.setValue(result.getUsuarios());
                     } else {

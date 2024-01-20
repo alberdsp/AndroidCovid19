@@ -1,6 +1,5 @@
 package com.example.covid_19app.models;
 
-import java.util.Collection;
 import java.util.List;
 
 
@@ -8,12 +7,20 @@ import java.util.List;
  * ABF 2024
  * Clase que contempla la respuesta del web service
  *  de la aplicación controla si fue exitosa o no y devuelve un listado de usuarios
+ *  o id cuando se insertan regitros
  *
  */
-public class ApiListRespuesta {
+public class ApiRespuesta {
     private boolean success;
     private String error;
     private List<Users> users;
+
+    private String userId;
+
+
+
+    public ApiRespuesta() {
+    }
 
     // getters y setters
 
@@ -41,4 +48,14 @@ public class ApiListRespuesta {
     public String getError() {
         return error;
     }
+
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
 }
