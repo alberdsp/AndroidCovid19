@@ -19,7 +19,7 @@ import java.util.List;
 
 /***
  * Clase que se encarga de realizar la conexión con el servidor para obtener la lista de usuarios
- * registrados en la aplicación.
+ * registrados en la aplicación. Puede pasarse un id como parametro y devuelve un un solo usuario
  */
 
 
@@ -28,20 +28,36 @@ public class ApiGetListController implements Runnable {
     private final Callback callback;
     private final Conexion conexion;
 
+
+    private String userId;  // ID del usuario (opcional)
+
+    // constructor para el list completo
     public ApiGetListController(Callback callback) {
         this.callback = callback;
         this.conexion = new Conexion();
     }
 
+    // Sobrecargamos el constructor para aceptar un ID de usuario
+    public ApiGetListController(Callback callback, String userId) {
+        this.callback = callback;
+        this.conexion = new Conexion();
+        this.userId = userId;
+    }
 
-    // Método que se encarga de enviar el callback al hilo principal.
+
     @Override
     public void run() {
-        ApiRespuesta response = fetchUsers();
+        ApiRespuesta response;
+        if (this.userId != null && !this.userId.isEmpty()) {
+            response = fetchUser(); // Llamada para un usuario específico
+        } else {
+            response = fetchUsers(); // Llamada para la lista completa de usuarios
+        }
         if (callback != null) {
             callback.onResult(response);
         }
     }
+
 
 
 
@@ -105,6 +121,30 @@ public class ApiGetListController implements Runnable {
         apiRespuesta.setUsuarios(usersList);
         return apiRespuesta;
     }
+
+    // Método nuevo para obtener un usuario específico
+    private ApiRespuesta fetchUser() {
+        ApiRespuesta apiRespuesta = new ApiRespuesta();
+        Users user = null;
+
+        try {
+            // hacemos petición a  'listid.php'
+            URL url = new URL(conexion.getUrl() + "listid.php?id=" + this.userId);
+            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            connection.setRequestMethod("GET");
+
+            // si la respuesta no es succes
+        } catch (IOException e) {
+            e.printStackTrace();
+            apiRespuesta.setSuccess(false);
+            apiRespuesta.setError("Error al conectar con el servidor.");
+        }
+
+        apiRespuesta.setUsuarios(new ArrayList<>(List.of(user)));
+        return apiRespuesta;
+    }
+
+
 
    public interface Callback {
         void onResult(ApiRespuesta result);
