@@ -1,4 +1,4 @@
-package com.example.covid_19app.views;
+package com.example.covid_19app.views.ui.informe;
 
 import android.graphics.Color;
 import android.os.Bundle;
@@ -13,7 +13,14 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.covid_19app.R;
+import com.example.covid_19app.controllers.ApiGetListController;
+import com.example.covid_19app.models.ApiRespuesta;
 import com.example.covid_19app.models.TomaDeTemperatura;
+import com.example.covid_19app.models.Users;
+import com.example.covid_19app.views.MenuFragment;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * ABF 2023
@@ -22,8 +29,12 @@ import com.example.covid_19app.models.TomaDeTemperatura;
 public class InformeFragment extends Fragment {
 
 
-    // declaramos atributos de la clase que vendrán por parametro al instanciarla
-    TomaDeTemperatura tomaDeTemperatura = new TomaDeTemperatura();
+     // declaramos el id del usuario que viene por parametro
+     private String userId;
+
+     private Users user;
+     private List<Users> usersList = new ArrayList<>();
+
 
     // declaramos los objetos que vamos a utilizar en la vista
 
@@ -36,13 +47,6 @@ public class InformeFragment extends Fragment {
 
     }
 
-    public InformeFragment(TomaDeTemperatura tomaDeTemperatura) {
-
-        this.tomaDeTemperatura = tomaDeTemperatura;
-
-    }
-
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,8 +56,7 @@ public class InformeFragment extends Fragment {
 
     public void onResume() {
         super.onResume();
-        // al recibir el foco cargamos los valores
-        cargarValores();
+
 
     }
 
@@ -65,6 +68,14 @@ public class InformeFragment extends Fragment {
 
         // declaramos la vista
         vista = inflater.inflate(R.layout.fragment_informe, container, false);
+
+        // recuperamos los datos que vienen por parametro
+        Bundle bundle = getArguments();
+        if (bundle != null) {
+             userId = bundle.getString("userId");
+            // Usar userId como sea necesario
+        }
+
 
         textViewNombre = vista.findViewById(R.id.textViewNombre);
         textViewApellidos= vista.findViewById(R.id.textViewApellidos);
@@ -95,7 +106,8 @@ public class InformeFragment extends Fragment {
 
             }
         });
-
+        //  cargamos los valores
+        cargarValores();
         return vista;
     }
 
@@ -147,32 +159,61 @@ public class InformeFragment extends Fragment {
      * método que establece los valores a los objetos del fragment
      */
 
-    public void cargarValores(){
+    public void cargarValores() {
 
+
+        ApiGetListController apiGetListController = new ApiGetListController(this::handleApiGetResponse, userId);
+
+
+        new Thread(apiGetListController).start();
+
+
+    }
+
+
+    public void actualizarUI(){
 
         //  establecemos los valores de los textviews
-        textViewNombre.setText(tomaDeTemperatura.getNombre());
-        textViewApellidos.setText(tomaDeTemperatura.getApellidos());
-        textViewTemperatura.setText(String.valueOf(tomaDeTemperatura.getTemperatura()));
-        textViewciudad.setText(tomaDeTemperatura.getCiudad());
-        textViewProvincia.setText(tomaDeTemperatura.getProvincia());
+        textViewNombre.setText(user.getNombre());
+        textViewApellidos.setText(user.getApellidos());
+        textViewTemperatura.setText(String.valueOf(user.getTemperatura()));
+        textViewciudad.setText(user.getCiudad());
+        textViewProvincia.setText(user.getProvincia());
 
 
         // si la temperatura es buena ponemos en verde el botón sino en rojo
-        if (alertaTemp(tomaDeTemperatura.getTemperatura(), tomaDeTemperatura.getTipotemperatura())){
+        if (alertaTemp(user.getTemperatura(), user.getFormat())){
 
             buttonresultado.setBackgroundColor(Color.parseColor("#AF4C63"));
 
         }else {
 
-
             buttonresultado.setBackgroundColor(Color.parseColor("#4CAF50"));
-
 
         };
 
-    };
+    }
 
+    /**
+     * Método que se ejecuta cuando se recibe la respuesta de la API
+     * @param apiRespuesta tipo ApiRespuesta
+     */
+
+    private void handleApiGetResponse(ApiRespuesta apiRespuesta) {
+        getActivity().runOnUiThread(() -> {
+            usersList = apiRespuesta.getUsuarios();
+
+            // si no es nula la lista
+            if (usersList != null) {
+               user = usersList.get(0) ;
+                actualizarUI();
+            } else {
+                // será nulo
+            }
+        });
+    }
+
+    ;
 
 
 

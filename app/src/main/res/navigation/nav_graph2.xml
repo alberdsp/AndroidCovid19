@@ -15,15 +15,6 @@
             app:destination="@id/configFragment" />
     </fragment>
     <fragment
-        android:id="@+id/informeFragment"
-        android:name="com.example.covid_19app.views.InformeFragment"
-        android:label="fragment_informe"
-        tools:layout="@layout/fragment_informe" >
-        <action
-            android:id="@+id/action_informeFragment_to_menuFragment"
-            app:destination="@id/menuFragment" />
-    </fragment>
-    <fragment
         android:id="@+id/configFragment"
         android:name="com.example.covid_19app.views.ui.configuration.ConfigFragment"
         android:label="fragment_config"

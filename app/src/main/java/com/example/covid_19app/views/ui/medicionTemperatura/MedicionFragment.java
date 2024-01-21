@@ -8,11 +8,14 @@ import android.widget.Button;
 import android.widget.RadioGroup;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.navigation.NavController;
+import androidx.navigation.fragment.NavHostFragment;
+
 import com.example.covid_19app.R;
 import com.example.covid_19app.controllers.ApiPostTemController;
 import com.example.covid_19app.models.ApiRespuesta;
 import com.example.covid_19app.models.TomaDeTemperatura;
-import com.example.covid_19app.views.InformeFragment;
+import com.example.covid_19app.views.ui.informe.InformeFragment;
 import com.google.android.material.textfield.TextInputEditText;
 
 /**
@@ -86,27 +89,27 @@ public class MedicionFragment extends Fragment {
 
     /**
      * Método que se ejecuta cuando se recibe la respuesta de la API
-     * @param response
+     * @param response tipo ApiRespuesta
      */
     private void handleApiPostResponse(ApiRespuesta response) {
         getActivity().runOnUiThread(() -> {
             if (response.isSuccess()) {
-
-
-                // TODO ABRIR EL INFORME PASANDO ID COMO PARAMETRO
                 String userId = response.getUserId(); // recibimos el id del usuario
 
-                Fragment informeFragment = new InformeFragment();
-                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-                transaction.replace(R.id.fragmentContainerViewMenu, informeFragment);
-                transaction.addToBackStack(null);
-                transaction.commit();
+                Bundle bundle = new Bundle();
+                bundle.putString("userId", userId); // Usamos "userId" como clave
+
+                // Usando NavController para navegar
+                NavController navController = NavHostFragment.findNavController(this);
+                navController.navigate(R.id.action_medicionFragment_to_informeFragment, bundle);
             } else {
                 // Mostrar mensaje de error
                 String errorMessage = response.getError();
-                // Mostrar errorMessage en la interfaz de usuario
+                // Aquí deberías manejar el error, como mostrar un Toast o un diálogo
             }
         });
     }
+
+
 
 }

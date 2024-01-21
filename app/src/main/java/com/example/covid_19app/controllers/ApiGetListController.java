@@ -125,7 +125,7 @@ public class ApiGetListController implements Runnable {
     // Método nuevo para obtener un usuario específico
     private ApiRespuesta fetchUser() {
         ApiRespuesta apiRespuesta = new ApiRespuesta();
-        Users user = null;
+        List<Users> usersList = new ArrayList<>();
 
         try {
             // hacemos petición a  'listid.php'
@@ -133,14 +133,51 @@ public class ApiGetListController implements Runnable {
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("GET");
 
+            // Se comprueba si la conexión con el servidor es correcta.
+            int responseCode = connection.getResponseCode();
+            if (responseCode == HttpURLConnection.HTTP_OK) {
+                BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+                StringBuilder response = new StringBuilder();
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    response.append(line);
+                }
+                reader.close();
+                // recibe un json con los datos de los usuarios registrados en la aplicación.
+                JSONObject jsonResponse = new JSONObject(response.toString());
+                apiRespuesta.setSuccess(jsonResponse.optBoolean("success"));
+                apiRespuesta.setError(jsonResponse.optString("error", null));
+                // si recibimos respuesta correcta, se añaden los usuarios a la lista.
+                if (apiRespuesta.isSuccess()) {
+                    JSONArray tempArray = jsonResponse.optJSONArray("temp");
+                    if (tempArray != null) {
+                        for (int i = 0; i < tempArray.length(); i++) {
+                            JSONObject tempObject = tempArray.optJSONObject(i);
+                            if (tempObject != null) {
+                                Users user = new Users();
+                                user.setId(tempObject.optString("id"));
+                                user.setNombre(tempObject.optString("nombre"));
+                                user.setApellidos(tempObject.optString("apellidos"));
+                                user.setTemperatura(tempObject.optString("temperatura"));
+                                user.setFormat(tempObject.optString("format"));
+                                user.setCiudad(tempObject.optString("ciudad"));
+                                user.setProvincia(tempObject.optString("provincia"));
+                                usersList.add(user);
+                            }
+                        }
+                    }
+                }
+            }
+
             // si la respuesta no es succes
         } catch (IOException e) {
             e.printStackTrace();
             apiRespuesta.setSuccess(false);
             apiRespuesta.setError("Error al conectar con el servidor.");
+        } catch (JSONException e) {
+            throw new RuntimeException(e);
         }
 
-        apiRespuesta.setUsuarios(new ArrayList<>(List.of(user)));
         return apiRespuesta;
     }
 

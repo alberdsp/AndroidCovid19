@@ -16,11 +16,6 @@
     </fragment>
 
     <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.example.covid_19app.views.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
-    <fragment
         android:id="@+id/conversorFragment"
         android:name="com.example.covid_19app.views.ui.conversor.ConversorFragment"
         android:label="Conversor Tempreratura"
@@ -44,7 +39,16 @@
         android:label="fragment_medicion"
         tools:layout="@layout/fragment_medicion" >
         <action
-            android:id="@+id/action_medicionFragment_to_nav_home"
+            android:id="@+id/action_medicionFragment_to_informeFragment"
+            app:destination="@id/informeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/informeFragment"
+        android:name="com.example.covid_19app.views.ui.informe.InformeFragment"
+        android:label="fragment_informe"
+        tools:layout="@layout/fragment_informe" >
+        <action
+            android:id="@+id/action_informeFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
     </fragment>
 </navigation>
