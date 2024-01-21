@@ -26,7 +26,7 @@ import java.util.List;
  * ABF 2023
  * Fragment que contiene el informe de la medición
  */
-public class InformeFragment extends Fragment {
+public class InformeFragment extends Fragment implements ApiGetListController.Callback {
 
 
      // declaramos el id del usuario que viene por parametro
@@ -44,12 +44,6 @@ public class InformeFragment extends Fragment {
 
     // constructor por defecto
     public InformeFragment() {
-
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
 
     }
 
@@ -92,6 +86,8 @@ public class InformeFragment extends Fragment {
         // declaramos el botón Finalizar que pasa al fragment informe
         buttonmenu = vista.findViewById(R.id.buttonMenu);
 
+        cargarValores();
+
         buttonmenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -106,8 +102,8 @@ public class InformeFragment extends Fragment {
 
             }
         });
-        //  cargamos los valores
-        cargarValores();
+
+
         return vista;
     }
 
@@ -156,7 +152,7 @@ public class InformeFragment extends Fragment {
 
 
     /**
-     * método que establece los valores a los objetos del fragment
+     * método que realiza la llamada a la API para obtener los datos del user
      */
 
     public void cargarValores() {
@@ -170,7 +166,9 @@ public class InformeFragment extends Fragment {
 
     }
 
-
+    /**
+     * método que establece los valores a los objetos del fragment
+     */
     public void actualizarUI(){
 
         //  establecemos los valores de los textviews
@@ -213,6 +211,21 @@ public class InformeFragment extends Fragment {
         });
     }
 
+    /**
+     * Método que se ejecuta cuando se recibe la respuesta de la API
+     * @param result tipo ApiRespuesta con lista de un solo user filtrado por id
+     */
+
+    @Override
+    public void onResult(ApiRespuesta result) {
+        getActivity().runOnUiThread(() -> {
+            if (result.isSuccess() && !result.getUsuarios().isEmpty()) {
+               user = result.getUsuarios().get(0);
+            } else {
+                // Manejar el caso de error o lista vacía
+            }
+        });
+    }
     ;
 
 

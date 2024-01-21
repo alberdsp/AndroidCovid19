@@ -122,7 +122,10 @@ public class ApiGetListController implements Runnable {
         return apiRespuesta;
     }
 
-    // Método nuevo para obtener un usuario específico
+     /***
+     * Método que se encarga de realizar la conexión con el servidor para obtener un usuario especifico por la id
+     * @return Devuelve un objeto de tipo ApiRespuesta con un alista de users pero solo con un user
+     */
     private ApiRespuesta fetchUser() {
         ApiRespuesta apiRespuesta = new ApiRespuesta();
         List<Users> usersList = new ArrayList<>();
@@ -177,12 +180,12 @@ public class ApiGetListController implements Runnable {
         } catch (JSONException e) {
             throw new RuntimeException(e);
         }
-
+        apiRespuesta.setUsuarios(usersList);
         return apiRespuesta;
     }
 
 
-
+   // interfaz para el callback
    public interface Callback {
         void onResult(ApiRespuesta result);
 
