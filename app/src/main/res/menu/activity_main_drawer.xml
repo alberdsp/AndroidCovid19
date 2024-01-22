@@ -6,24 +6,24 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/homeFragment"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/hogar"
             android:title="Inicio" />
         <item
             android:id="@+id/medicionFragment"
-            android:icon="@drawable/ic_menu_gallery"
+            android:icon="@drawable/termometro"
             android:title="Medición de Temperatura" />
         <item
             android:id="@+id/conversorFragment"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@drawable/fahrenheit"
             android:title="Conversor" />
         <item
             android:id="@+id/configFragment"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@drawable/engranajes_de_configuracion"
             android:title="Configuración" />
 
         <item
             android:id="@+id/nav_cerrar_sesion"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@drawable/cerrar_sesion"
             android:title="Cerrar sesión" />
     </group>
 </menu>

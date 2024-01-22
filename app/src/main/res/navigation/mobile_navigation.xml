@@ -36,8 +36,8 @@
     <fragment
         android:id="@+id/medicionFragment"
         android:name="com.example.covid_19app.views.ui.medicionTemperatura.MedicionFragment"
-        android:label="fragment_medicion"
-        tools:layout="@layout/fragment_medicion" >
+        android:label="Medición de Temperaturas"
+        tools:layout="@layout/fragment_medicion">
         <action
             android:id="@+id/action_medicionFragment_to_informeFragment"
             app:destination="@id/informeFragment" />
@@ -45,8 +45,8 @@
     <fragment
         android:id="@+id/informeFragment"
         android:name="com.example.covid_19app.views.ui.informe.InformeFragment"
-        android:label="fragment_informe"
-        tools:layout="@layout/fragment_informe" >
+        android:label="Informe Resultado"
+        tools:layout="@layout/fragment_informe">
         <action
             android:id="@+id/action_informeFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
