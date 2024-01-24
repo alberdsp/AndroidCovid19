@@ -54,4 +54,8 @@
             android:id="@+id/action_informeFragment_to_homeFragment2"
             app:destination="@id/homeFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/cerrarFragment"
+        android:name="com.example.covid_19app.views.ui.cerrar.CerrarFragment"
+        android:label="CerrarFragment" />
 </navigation>

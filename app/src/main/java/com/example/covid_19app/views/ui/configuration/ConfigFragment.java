@@ -9,7 +9,9 @@ import android.widget.Switch;
 
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+
 import com.example.covid_19app.R;
+
 public class ConfigFragment extends Fragment {
 
     private ConfigViewModel configViewModel;

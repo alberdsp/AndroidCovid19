@@ -35,7 +35,6 @@ public class LoginFragment extends Fragment {
     private UserLogin usuario = new UserLogin();
 
 
-
     // constructor por defecto, creamos la vista
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -50,15 +49,13 @@ public class LoginFragment extends Fragment {
         // si usuario.getGuardar(getActivity()).equals("SI") no es nulo
 
 
-
         // si el switch está activado, recupera los datos del shared preferences
-        if(usuario.getGuardar(getActivity()).equals("SI")){
-             recordarContrasena.setChecked(true);
-              textLogin.setText(usuario.getUsuarioShared(getActivity()));
-              textPassword.setText(usuario.getPasswordShared(getActivity()));
+        if (usuario.getGuardar(getActivity()).equals("SI")) {
+            recordarContrasena.setChecked(true);
+            textLogin.setText(usuario.getUsuarioShared(getActivity()));
+            textPassword.setText(usuario.getPasswordShared(getActivity()));
 
         }
-
 
 
         // listener del botón login
@@ -79,7 +76,6 @@ public class LoginFragment extends Fragment {
      * Si no es correcto muestra un toast con el error y cambia el color de los inputtext
      */
     private void hacerLogin() {
-
 
 
         usuario.setUsuario(textLogin.getText().toString());
@@ -104,11 +100,10 @@ public class LoginFragment extends Fragment {
 
                                 // si no esta activado el switch borramos las credenciales del shared preferences
                             } else {
-                                 usuario.borrarPreferences(getActivity());
+                                usuario.borrarPreferences(getActivity());
                                 Intent intent = new Intent(getActivity(), MainActivity2.class);
                                 startActivity(intent);
                             }
-
 
 
                         } else {

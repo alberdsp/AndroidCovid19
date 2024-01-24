@@ -60,6 +60,7 @@ public class HomeFragment extends Fragment implements ApiGetListController.Callb
         super.onDestroyView();
         binding = null;
     }
+
     @Override
     public void onResult(final ApiRespuesta result) {
 
@@ -80,4 +81,4 @@ public class HomeFragment extends Fragment implements ApiGetListController.Callb
     }
 
 
-    }
+}

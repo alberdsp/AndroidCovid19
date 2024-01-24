@@ -3,6 +3,7 @@ package com.example.covid_19app.views;
 import static android.app.PendingIntent.getActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -44,6 +45,7 @@ public class MainActivity2 extends AppCompatActivity {
                     navController.navigate(R.id.conversorFragment);
                     navController.navigate(R.id.medicionFragment);
                     navController.navigate(R.id.configFragment);
+                    navController.navigate(R.id.cerrarFragment);
 
                 } catch (Exception e) {
                     Log.e("MainActivity2", "Navigation Error", e); // Error log
@@ -54,20 +56,11 @@ public class MainActivity2 extends AppCompatActivity {
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navigationView = binding.navView;
         // Listener para el menú de navegación
-        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
 
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                if (item.getItemId() == R.id.nav_cerrar_sesion) {
-                    cerrarSesion();
-                    return true; // Indica que has manejado el ítem manualmente
-                }
-                return false; // Indica que no has manejado el ítem manualmente
-            }
 
-        });
 
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.homeFragment, R.id.medicionFragment, R.id.conversorFragment, R.id.configFragment)
+                R.id.homeFragment, R.id.medicionFragment, R.id.conversorFragment, R.id.configFragment, R.id.cerrarFragment)
                 .setOpenableLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
@@ -75,18 +68,9 @@ public class MainActivity2 extends AppCompatActivity {
         NavigationUI.setupWithNavController(navigationView, navController);
     }
 
-    private void cerrarSesion() {
 
-        //TODO    IMPLEMENTAR EL CIERRE DE SESIÓN
-        // Reiniciamos MainActivity
-        Intent intent = new Intent(this, MainActivity2.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        startActivity(intent);
-        finish(); // Cierra la actividad actual
-        Throwable e = null;
-        Log.e("MainActivity2", "Navigation Error", e); // Error log
 
-    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
