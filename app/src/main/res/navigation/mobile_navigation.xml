@@ -21,7 +21,7 @@
         android:label="Conversor Tempreratura"
         tools:layout="@layout/fragment_conversor" >
         <action
-            android:id="@+id/action_conversorFragment_to_nav_home"
+            android:id="@+id/action_conversorFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
     </fragment>
     <fragment
@@ -30,7 +30,7 @@
         android:label="Configuración"
         tools:layout="@layout/fragment_config" >
         <action
-            android:id="@+id/action_configFragment_to_nav_home"
+            android:id="@+id/action_configFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
     </fragment>
     <fragment
@@ -41,6 +41,9 @@
         <action
             android:id="@+id/action_medicionFragment_to_informeFragment"
             app:destination="@id/informeFragment" />
+        <action
+            android:id="@+id/action_medicionFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
     </fragment>
     <fragment
         android:id="@+id/informeFragment"
@@ -48,7 +51,7 @@
         android:label="Informe Resultado"
         tools:layout="@layout/fragment_informe">
         <action
-            android:id="@+id/action_informeFragment_to_homeFragment"
+            android:id="@+id/action_informeFragment_to_homeFragment2"
             app:destination="@id/homeFragment" />
     </fragment>
 </navigation>

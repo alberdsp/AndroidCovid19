@@ -54,20 +54,30 @@ public class HomeFragment extends Fragment implements ApiGetListController.Callb
         return root;
     }
 
+
     @Override
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
     }
-
     @Override
-    public void onResult(ApiRespuesta result) {
-        if (result.isSuccess()) {
-            usersList.clear();
-            usersList.addAll(result.getUsuarios());
-            adapter.notifyDataSetChanged();
-        } else {
-            Snackbar.make(getView(), "Error: no se completó la petición al servidor" , Snackbar.LENGTH_LONG).show();
-        }
+    public void onResult(final ApiRespuesta result) {
+
+
+        // recuperamos el hilos principal para mostrar los resultados
+        getActivity().runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                if (result.isSuccess()) {
+                    usersList.clear();
+                    usersList.addAll(result.getUsuarios());
+                    adapter.notifyDataSetChanged();
+                } else {
+                    Snackbar.make(getView(), "Error: no se completó la petición al servidor", Snackbar.LENGTH_LONG).show();
+                }
+            }
+        });
     }
-}
+
+
+    }
