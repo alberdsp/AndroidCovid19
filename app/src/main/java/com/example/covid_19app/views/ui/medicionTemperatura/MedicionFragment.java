@@ -18,7 +18,7 @@ import com.example.covid_19app.controllers.ApiPostTemController;
 import com.example.covid_19app.models.ApiRespuesta;
 import com.example.covid_19app.models.TomaDeTemperatura;
 
-import com.example.covid_19app.views.MainActivity2;
+import com.example.covid_19app.views.MainActivityNav;
 import com.google.android.material.textfield.TextInputEditText;
 
 /**
@@ -46,18 +46,28 @@ public class MedicionFragment extends Fragment {
     }
 
 
+
+    // Método que se ejecuta cuando se reanuda la actividad, establecemos el estado del switch por si ha cambiado
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public void onResume() {
+        super.onResume();
         if (getActivity() != null) {
-            sharedPreferences = getActivity().getSharedPreferences(PREFERENCES_FILE_KEY, MainActivity2.MODE_PRIVATE);
+            sharedPreferences = getActivity().getSharedPreferences(PREFERENCES_FILE_KEY, MainActivityNav.MODE_PRIVATE);
 
             // Cambia esto para leer un valor booleano
             boolean switchState = sharedPreferences.getBoolean(SWITCH_STATE_KEY, false); // false es el valor por defecto
 
             // Convierte el estado del switch a un valor entero si es necesario
             unidadMedida = switchState ? 1 : 2; // Suponiendo que 1 representa 'true' y 2 representa 'false'
+
+            inicializarComponentesUI();
         }
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
     }
 
     // cargamos la vista del fragment

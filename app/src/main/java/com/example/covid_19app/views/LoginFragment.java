@@ -95,13 +95,13 @@ public class LoginFragment extends Fragment {
 
                                 usuario.almacenarCredenciales(getActivity(), usuario.getUsuario(), usuario.getPassword());
 
-                                Intent intent = new Intent(getActivity(), MainActivity2.class);
+                                Intent intent = new Intent(getActivity(), MainActivityNav.class);
                                 startActivity(intent);
 
                                 // si no esta activado el switch borramos las credenciales del shared preferences
                             } else {
                                 usuario.borrarPreferences(getActivity());
-                                Intent intent = new Intent(getActivity(), MainActivity2.class);
+                                Intent intent = new Intent(getActivity(), MainActivityNav.class);
                                 startActivity(intent);
                             }
 

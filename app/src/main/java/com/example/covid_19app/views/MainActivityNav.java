@@ -2,18 +2,14 @@ package com.example.covid_19app.views;
 
 import static android.app.PendingIntent.getActivity;
 
-import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.Menu;
-import android.view.MenuItem;
-import androidx.annotation.NonNull;
+
 import com.example.covid_19app.R;
 import com.google.android.material.navigation.NavigationView;
 
-import androidx.core.view.GravityCompat;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -22,7 +18,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.covid_19app.databinding.ActivityMain2Binding;
 
-public class MainActivity2 extends AppCompatActivity {
+public class MainActivityNav extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMain2Binding binding;
@@ -40,7 +36,7 @@ public class MainActivity2 extends AppCompatActivity {
             public void onClick(View view) {
                 Log.d("MainActivity2", "FAB Clicked"); // Debug log
                 try {
-                    NavController navController = Navigation.findNavController(MainActivity2.this, R.id.nav_host_fragment_content_main);
+                    NavController navController = Navigation.findNavController(MainActivityNav.this, R.id.nav_host_fragment_content_main);
                     navController.navigate(R.id.homeFragment);
                     navController.navigate(R.id.conversorFragment);
                     navController.navigate(R.id.medicionFragment);
