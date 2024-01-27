@@ -12,7 +12,9 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.covid_19app.adapters.UserAdapter;
 import com.example.covid_19app.controllers.ApiGetListController;
+
 import com.example.covid_19app.databinding.FragmentHomeBinding;
+
 import com.example.covid_19app.models.ApiRespuesta;
 import com.example.covid_19app.models.Users;
 import com.google.android.material.snackbar.Snackbar;
@@ -33,6 +35,9 @@ public class HomeFragment extends Fragment implements ApiGetListController.Callb
     private List<Users> usersList;
     private UserAdapter adapter;
 
+
+
+    // método para crear la vista del fragmento hacemos binding de la vista
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         HomeViewModel homeViewModel =

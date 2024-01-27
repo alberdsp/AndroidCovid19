@@ -18,11 +18,9 @@
         <activity
             android:name=".views.MainActivityNav"
             android:exported="false"
-            android:label="@string/title_activity_main2"
+            android:label="MainActivityNav"
             android:theme="@style/Theme.Covid19App.NoActionBar" />
-        <activity
-            android:name=".views.MenuActivity"
-            android:exported="false" />
+
         <activity
             android:name=".views.MainActivity"
             android:exported="true" >

@@ -4,6 +4,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 
@@ -16,7 +17,9 @@ import android.widget.TextView;
 import com.example.covid_19app.R;
 import com.example.covid_19app.controllers.ApiGetListController;
 import com.example.covid_19app.models.ApiRespuesta;
+import com.example.covid_19app.models.TomaDeTemperatura;
 import com.example.covid_19app.models.Users;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,8 +41,8 @@ public class InformeFragment extends Fragment implements ApiGetListController.Ca
     // declaramos los objetos que vamos a utilizar en la vista
 
     View vista;
-    TextView textViewNombre, textViewApellidos, textViewTemperatura, textViewciudad, textViewProvincia;
-    Button buttonmenu, buttonresultado;
+    TextView textViewNombre,textViewApellidos,textViewTemperatura,textViewciudad,textViewProvincia;
+    Button buttonmenu,buttonresultado;
 
     // constructor por defecto
     public InformeFragment() {
@@ -52,6 +55,7 @@ public class InformeFragment extends Fragment implements ApiGetListController.Ca
 
 
     }
+
 
 
     @Override
@@ -70,10 +74,11 @@ public class InformeFragment extends Fragment implements ApiGetListController.Ca
 
 
         textViewNombre = vista.findViewById(R.id.textViewNombre);
-        textViewApellidos = vista.findViewById(R.id.textViewApellidos);
+        textViewApellidos= vista.findViewById(R.id.textViewApellidos);
         textViewTemperatura = vista.findViewById(R.id.textViewTemperatura);
         textViewciudad = vista.findViewById(R.id.textViewCiudad);
         textViewProvincia = vista.findViewById(R.id.textViewProvincia);
+
 
 
         // declaramos el botón Finalizar que pasa al fragment informe
@@ -83,15 +88,20 @@ public class InformeFragment extends Fragment implements ApiGetListController.Ca
         // declaramos el botón Finalizar que pasa al fragment informe
         buttonmenu = vista.findViewById(R.id.buttonMenu);
 
-        buttonmenu.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // inicalizamos el navegation controller
-                NavController navController = NavHostFragment.findNavController(InformeFragment.this);
-                navController.navigate(R.id.homeFragment); // volvemos al home
-            }
+        cargarValores();
 
-        });
+        buttonmenu.setOnClickListener(new View.OnClickListener() {
+
+                                              @Override
+                                              public void onClick(View v) {
+                                                  // inicalizamos el navegation controller
+                                                  NavController navController = NavHostFragment.findNavController(InformeFragment.this);
+                                                  navController.navigate(R.id.homeFragment); // volvemos al home
+                                              }
+
+                                          });
+
+
 
 
         return vista;
@@ -100,32 +110,32 @@ public class InformeFragment extends Fragment implements ApiGetListController.Ca
 
     /**
      * Metodo que evalua la temperatura tomada para ver si es correcta
-     *
      * @param temperatura     entero con la temperatura tomada
-     * @param tipotemperatura entero 1 = Celsius , 2 =  Fahrenheit
-     * @return false si la temperatura es buena, true si es alerta covid
+     * @param tipotemperatura  entero 1 = Celsius , 2 =  Fahrenheit
+     * @return  false si la temperatura es buena, true si es alerta covid
      */
 
-    public boolean alertaTemp(int temperatura, int tipotemperatura) {
+    public boolean alertaTemp(int temperatura, int tipotemperatura){
 
 
-        switch (tipotemperatura) {
+
+        switch (tipotemperatura){
 
             case 1:
                 // si supera 38º celsius damos alerta
 
-                if (temperatura > 38) {
+                if(temperatura> 38){
                     return true;
-                } else {
+                }else{
                     return false;
                 }
 
             case 2:
                 // si supera 100º fahrenheit damos alerta
 
-                if (temperatura > 100) {
+                if(temperatura> 100){
                     return true;
-                } else {
+                }else{
                     return false;
                 }
 
@@ -136,9 +146,9 @@ public class InformeFragment extends Fragment implements ApiGetListController.Ca
         }
 
 
-    }
 
-    ;
+
+    };
 
 
     /**
@@ -159,7 +169,7 @@ public class InformeFragment extends Fragment implements ApiGetListController.Ca
     /**
      * método que establece los valores a los objetos del fragment
      */
-    public void actualizarUI() {
+    public void actualizarUI(){
 
         //  establecemos los valores de los textviews
         textViewNombre.setText(user.getNombre());
@@ -170,22 +180,20 @@ public class InformeFragment extends Fragment implements ApiGetListController.Ca
 
 
         // si la temperatura es buena ponemos en verde el botón sino en rojo
-        if (alertaTemp(user.getTemperatura(), user.getFormat())) {
+        if (alertaTemp(user.getTemperatura(), user.getFormat())){
 
             buttonresultado.setBackgroundColor(Color.parseColor("#AF4C63"));
 
-        } else {
+        }else {
 
             buttonresultado.setBackgroundColor(Color.parseColor("#4CAF50"));
 
-        }
-        ;
+        };
 
     }
 
     /**
      * Método que se ejecuta cuando se recibe la respuesta de la API
-     *
      * @param apiRespuesta tipo ApiRespuesta
      */
 
@@ -195,7 +203,7 @@ public class InformeFragment extends Fragment implements ApiGetListController.Ca
 
             // si no es nula la lista
             if (usersList != null) {
-                user = usersList.get(0);
+                user = usersList.get(0) ;
                 actualizarUI();
             } else {
                 // será nulo
@@ -205,7 +213,6 @@ public class InformeFragment extends Fragment implements ApiGetListController.Ca
 
     /**
      * Método que se ejecuta cuando se recibe la respuesta de la API
-     *
      * @param result tipo ApiRespuesta con lista de un solo user filtrado por id
      */
 
@@ -219,8 +226,8 @@ public class InformeFragment extends Fragment implements ApiGetListController.Ca
             }
         });
     }
-
     ;
+
 
 
 }
