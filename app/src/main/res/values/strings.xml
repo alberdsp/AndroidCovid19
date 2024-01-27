@@ -22,4 +22,5 @@
     <string name="menu_home">Inicio</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
+    <string name="icono">icono.png</string>
 </resources>
