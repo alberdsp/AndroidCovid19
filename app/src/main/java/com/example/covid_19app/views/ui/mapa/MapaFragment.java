@@ -1,89 +1,50 @@
 package com.example.covid_19app.views.ui.mapa;
 
-
 import android.os.Bundle;
-
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import com.example.covid_19app.R;
+import com.example.covid_19app.controllers.ApiGetListController;
+import com.example.covid_19app.controllers.ObtenerCoordenadas;
+import com.example.covid_19app.models.ApiRespuesta;
 import com.example.covid_19app.models.Coordenadas;
 import com.example.covid_19app.models.Users;
 import com.example.covid_19app.views.ui.home.HomeViewModel;
+import com.google.android.gms.maps.CameraUpdate;
+import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
-
 import java.util.List;
 
 
 /**
- * clase que muestra en el mapa las losclaizaciones de los pacientes, para ello
- * tenemos un observador del Homeviewmodel  que carga al inicio de la app
+ * Clase que se encarga de mostrar el mapa con los marcadores de los usuarios
+ * ABF 28/01/2024
  */
 
 public class MapaFragment extends Fragment {
 
-
     private SupportMapFragment mapFragment;
-
     private HomeViewModel homeViewModel;
 
-
-    /**
-     * Constructor stático
-     * @return
-     */
     public static MapaFragment newInstance() {
         return new MapaFragment();
     }
 
 
-
-
-
-/*
-
-   @Override
-
+    // Método que se ejecuta al crear la vista
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
         homeViewModel = new ViewModelProvider(requireActivity()).get(HomeViewModel.class);
-
-
-        // Observar los cambios en la lista de usuarios
-        homeViewModel.getUserItemsList().observe(getViewLifecycleOwner(), new Observer<List<Users>>() {
-
-
-            @Override
-            public void onChanged(@Nullable List<Users> users) {
-                if (users != null && !users.isEmpty()) {
-                    List<Coordenadas> coordenadasList = Coordenadas.obtenerCoordenadasDeUsuarios(users);
-
-                    // realizamos la tarea asyncrona para no enlentecer la carga del mapa
-                    mapFragment.getMapAsync(new OnMapReadyCallback() {
-                        @Override
-                        public void onMapReady(GoogleMap googleMap) {
-                            for (Coordenadas coordenadas : coordenadasList) {
-                                googleMap.addMarker(new MarkerOptions()
-                                        .position(new LatLng(coordenadas.getLatitud(), coordenadas.getLongitud()))
-                                        .title(""));
-                            }
-                        }
-                    });
-                }
-            }
-        });
-        // cargamos el fragment del mapa
 
         View rootView = inflater.inflate(R.layout.fragment_mapa, container, false);
 
@@ -92,21 +53,28 @@ public class MapaFragment extends Fragment {
         FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
         transaction.add(R.id.mapaContainer, mapFragment).commit();
 
+
+        // Observar los cambios en la lista de usuarios
+        homeViewModel.getUserItemsList().observe(getViewLifecycleOwner(), new Observer<List<Users>>() {
+            @Override
+            public void onChanged(@Nullable List<Users> users) {
+                if (users != null && !users.isEmpty()) {
+                    obtenerCoordenadasYMostrarMarcadores(users);
+                }
+            }
+        });
+        // Cargamos la lista de usuarios inicialmente, después lo hará el observer
+        cargarListaDeUsuarios();
         return rootView;
     }
 
-*/
-
-
     @Override
-
     public void onResume() {
         super.onResume();
         if (mapFragment != null) {
             mapFragment.onResume();
         }
     }
-
 
     @Override
     public void onPause() {
@@ -126,6 +94,62 @@ public class MapaFragment extends Fragment {
         mapFragment.onLowMemory();
     }
 
+
+
+    // Método que obtiene las coordenadas de una lista de usuarios y las traduce en coordenadas
+    // para mostrar los marcadores en el mapa
+    private void obtenerCoordenadasYMostrarMarcadores(List<Users> users) {
+        ObtenerCoordenadas coordenadasHelper = new ObtenerCoordenadas();
+        coordenadasHelper.obtenerCoordenadasAsync(users, new ObtenerCoordenadas.CoordenadasCallback() {
+            @Override
+            public void onCoordenadasObtenidas(List<Coordenadas> coordenadasList) {
+                mostrarMarcadoresEnMapa(coordenadasList);
+            }
+        }, requireContext());
+    }
+
+
+
+    // Método que muestra los marcadores en el mapa de una lista de coordenadas
+    private void mostrarMarcadoresEnMapa(List<Coordenadas> coordenadasList) {
+        mapFragment.getMapAsync(new OnMapReadyCallback() {
+            @Override
+            public void onMapReady(GoogleMap googleMap) {
+                googleMap.clear(); // Borramos los marcadores existentes antes de agregar nuevos
+
+                // Posicionamos la cámara en Madrid
+                LatLng madridLatLng = new LatLng(40.416775, -3.703790);
+
+                // Configurar la cámara para hacer zoom en Madrid
+                CameraUpdate cu = CameraUpdateFactory.newLatLngZoom(madridLatLng, 5); // con un nivel de zoom
+
+                // Hacemos zoom suave
+                   googleMap.animateCamera(cu);
+
+                   // Agregamos los marcadores recorriendo la lista de coordenadas
+                for (Coordenadas coordenada : coordenadasList) {
+                    googleMap.addMarker(new MarkerOptions()
+                            .position(new LatLng(coordenada.getLatitud(), coordenada.getLongitud()))
+                            .title(""));
+                }
+            }
+        });
+    }
+
+
+    // Método que carga la lista de usuarios haciendo uso de un hilo para no bloquear la interfaz
+    private void cargarListaDeUsuarios() {
+        ApiGetListController apiGetListController = new ApiGetListController(new ApiGetListController.Callback() {
+            @Override
+            public void onResult(ApiRespuesta result) {
+                if (result.isSuccess() && result.getUsuarios() != null) {
+                    obtenerCoordenadasYMostrarMarcadores(result.getUsuarios());
+                }
+            }
+        });
+        Thread thread = new Thread(apiGetListController);
+        thread.start();
+    }
 
 
 }
