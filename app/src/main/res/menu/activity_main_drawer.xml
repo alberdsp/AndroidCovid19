@@ -20,6 +20,11 @@
             android:id="@+id/configFragment"
             android:icon="@drawable/engranajes_de_configuracion"
             android:title="Configuración" />
+        <item
+            android:id="@+id/mapaFragment"
+            android:icon="@drawable/engranajes_de_configuracion"
+            android:title="Mapa" />
+
 
         <item
             android:id="@+id/cerrarFragment"

@@ -41,6 +41,7 @@ public class MainActivityNav extends AppCompatActivity {
                     navController.navigate(R.id.conversorFragment);
                     navController.navigate(R.id.medicionFragment);
                     navController.navigate(R.id.configFragment);
+                    navController.navigate(R.id.mapaFragment);
                     navController.navigate(R.id.cerrarFragment);
 
                 } catch (Exception e) {
@@ -56,7 +57,7 @@ public class MainActivityNav extends AppCompatActivity {
 
 
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.homeFragment, R.id.medicionFragment, R.id.conversorFragment, R.id.configFragment, R.id.cerrarFragment)
+                R.id.homeFragment, R.id.medicionFragment, R.id.conversorFragment, R.id.configFragment, R.id.mapaFragment,R.id.cerrarFragment)
                 .setOpenableLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);

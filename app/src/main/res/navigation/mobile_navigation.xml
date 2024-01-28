@@ -58,4 +58,12 @@
         android:id="@+id/cerrarFragment"
         android:name="com.example.covid_19app.views.ui.cerrar.CerrarFragment"
         android:label="CerrarFragment" />
+    <fragment
+        android:id="@+id/mapaFragment"
+        android:name="com.example.covid_19app.views.ui.mapa.MapaFragment"
+        android:label="Mapa de Ubicaciones">
+        <action
+            android:id="@+id/action_mapaFragment3_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
 </navigation>
