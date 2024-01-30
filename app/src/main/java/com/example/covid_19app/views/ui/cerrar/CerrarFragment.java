@@ -32,7 +32,7 @@ public class CerrarFragment extends Fragment {
     public void cerrarSesion() {
         // si no hay activity no hacer nada
         if (getActivity() != null) {
-            // Cerramos MainActivity2 y volvemos al MainActivity cargando la pantalla de login
+            // Cerramos MainActivityNAv y volvemos al MainActivity cargando la pantalla de login
             Intent intent = new Intent(getActivity(), MainActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);

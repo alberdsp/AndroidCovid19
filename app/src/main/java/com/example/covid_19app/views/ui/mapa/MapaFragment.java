@@ -23,6 +23,8 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+
+
 import java.util.List;
 
 
@@ -36,8 +38,23 @@ public class MapaFragment extends Fragment {
     private SupportMapFragment mapFragment;
     private HomeViewModel homeViewModel;
 
+
+
+    // constructor por defecto
     public static MapaFragment newInstance() {
         return new MapaFragment();
+    }
+
+
+
+    // Método que crea una instancia del fragmento recibiendo el id del usuario seleccionado
+
+    public static MapaFragment newInstance(String userid) {
+        MapaFragment fragment = new MapaFragment();
+        Bundle args = new Bundle();
+        args.putString("selectedUserId", userid);
+        fragment.setArguments(args);
+        return fragment;
     }
 
 
@@ -45,33 +62,48 @@ public class MapaFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         homeViewModel = new ViewModelProvider(requireActivity()).get(HomeViewModel.class);
-
         View rootView = inflater.inflate(R.layout.fragment_mapa, container, false);
 
-        // Inicializa el SupportMapFragment para la transición
-        mapFragment = SupportMapFragment.newInstance();
-        FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
-        transaction.add(R.id.mapaContainer, mapFragment).commit();
+        Bundle args = getArguments();
 
 
-        // Observar los cambios en la lista de usuarios
-        homeViewModel.getUserItemsList().observe(getViewLifecycleOwner(), new Observer<List<Users>>() {
-            @Override
-            public void onChanged(@Nullable List<Users> users) {
-                if (users != null && !users.isEmpty()) {
-                    obtenerCoordenadasYMostrarMarcadores(users);
+            mapFragment = SupportMapFragment.newInstance();
+            FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
+            transaction.add(R.id.mapaContainer, mapFragment).commit();
+
+
+            // cramos un observador para que cuando cambie la lista de usuarios se actualice el mapa
+            homeViewModel.getUserItemsList().observe(getViewLifecycleOwner(), new Observer<List<Users>>() {
+                @Override
+                public void onChanged(@Nullable List<Users> users) {
+                    if (users != null && !users.isEmpty()) {
+                        obtenerCoordenadasYMostrarMarcadores(users);
+                    }
                 }
+            });
+
+
+
+            // si pasamos un id de usuario como argumento, cargamos la lista de usuarios con ese id
+
+        if (args != null) {
+            String selectedUserId = args.getString("userid");
+            if (selectedUserId != null) {
+                cargarListaDeUsuarios(selectedUserId);
             }
-        });
-        // Cargamos la lista de usuarios inicialmente, después lo hará el observer
-        cargarListaDeUsuarios();
+        }else {
+            cargarListaDeUsuarios();
+
+        }
+
         return rootView;
     }
-
     @Override
     public void onResume() {
         super.onResume();
         if (mapFragment != null) {
+
+
             mapFragment.onResume();
         }
     }
@@ -96,7 +128,7 @@ public class MapaFragment extends Fragment {
 
 
 
-    // Método que obtiene las coordenadas de una lista de usuarios y las traduce en coordenadas
+    // Método que obtiene las direcciones de una lista de usuarios y las traduce en coordenadas
     // para mostrar los marcadores en el mapa
     private void obtenerCoordenadasYMostrarMarcadores(List<Users> users) {
         ObtenerCoordenadas coordenadasHelper = new ObtenerCoordenadas();
@@ -137,7 +169,7 @@ public class MapaFragment extends Fragment {
     }
 
 
-    // Método que carga la lista de usuarios haciendo uso de un hilo para no bloquear la interfaz
+    // Método que carga  toda la lista usuarios haciendo uso de un hilo para no bloquear la interfaz
     private void cargarListaDeUsuarios() {
         ApiGetListController apiGetListController = new ApiGetListController(new ApiGetListController.Callback() {
             @Override
@@ -151,5 +183,20 @@ public class MapaFragment extends Fragment {
         thread.start();
     }
 
+
+
+    // Método que carga la lista de usuarios filtrando por el id de usuario pasado,  haciendo uso de un hilo para no bloquear la interfaz
+    private void cargarListaDeUsuarios(String userid) {
+        ApiGetListController apiGetListController = new ApiGetListController(new ApiGetListController.Callback() {
+            @Override
+            public void onResult(ApiRespuesta result) {
+                if (result.isSuccess() && result.getUsuarios() != null) {
+                    obtenerCoordenadasYMostrarMarcadores(result.getUsuarios());
+                }
+            }
+        }, userid);
+        Thread thread = new Thread(apiGetListController);
+        thread.start();
+    }
 
 }

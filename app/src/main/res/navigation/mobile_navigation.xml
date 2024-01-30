@@ -13,6 +13,12 @@
         <action
             android:id="@+id/action_homeFragment_self"
             app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_homeFragment_self2"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_mapaFragment"
+            app:destination="@id/mapaFragment" />
     </fragment>
 
     <fragment
