@@ -1,24 +1,21 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:padding="16dp">
+    android:orientation="vertical">
 
     <TextView
-        android:id="@+id/tvUserName"
-        android:layout_width="wrap_content"
+        android:id="@+id/tvUserNameAndTemperature"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textStyle="bold"/>
+        android:textSize="22sp"
+        android:textColor="@android:color/black"
+        android:typeface="monospace"/>
 
     <TextView
         android:id="@+id/tvUserDetails"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-    <TextView
-        android:id="@+id/tvTemperature"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="end" />
+        android:textSize="18sp"
+        android:textColor="@android:color/black" />
 </LinearLayout>
