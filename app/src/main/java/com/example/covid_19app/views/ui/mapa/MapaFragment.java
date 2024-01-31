@@ -6,6 +6,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavController;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -98,6 +100,10 @@ public class MapaFragment extends Fragment {
 
         return rootView;
     }
+
+
+    // Métodos cuando se recarga el fragment, si se recarga sin argumentos cargamos la lista de usuarios
+    // si se recarga con argumentos cargamos la lista de usuarios filtrando por el id de usuario pasado
     @Override
     public void onResume() {
         super.onResume();
@@ -105,14 +111,36 @@ public class MapaFragment extends Fragment {
 
 
             mapFragment.onResume();
+
         }
+        // Verificar si no hay argumentos y luego cargar la lista de usuarios
+        if (getArguments() == null) {
+            cargarListaDeUsuarios();
+        }
+
+        // Verificar si el fragmento ya tiene argumentos
+        Bundle args = getArguments();
+        if (args != null) {
+            // El fragment ya tiene argumentos, puedes acceder a ellos aquí
+            // args contiene los argumentos pasados al fragmento
+
+            // Establecer los argumentos a null
+            setArguments(null);
+        } else {
+            // El fragment no tiene argumentos
+
+        }
+
+
     }
 
     @Override
     public void onPause() {
         super.onPause();
-        mapFragment.onPause();
+
     }
+
+
 
     @Override
     public void onDestroy() {

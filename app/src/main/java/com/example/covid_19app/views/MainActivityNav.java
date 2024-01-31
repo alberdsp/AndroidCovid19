@@ -68,11 +68,7 @@ public class MainActivityNav extends AppCompatActivity implements HomeFragment.O
         NavigationUI.setupWithNavController(navigationView, navController);
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main_activity2, menu);
-        return true;
-    }
+
 
     @Override
     public boolean onSupportNavigateUp() {
